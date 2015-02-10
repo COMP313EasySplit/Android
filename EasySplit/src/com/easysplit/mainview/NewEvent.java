@@ -26,18 +26,9 @@ public class NewEvent extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 
 		switch (item.getItemId()) {
-		case R.id.action_home:
-			// openHome();
-			return true;
-		case R.id.action_addNewEvent:
-			// openNewEvent();
-			return true;
-		case R.id.action_accountInfo:
-			//openAccountInfo();
-			return true;
-		case R.id.action_logout:
-			//processLogout();
-			return true;
+		case R.id.action_cancel:
+			// cancel();
+			return true;		
 		default:
 			return super.onOptionsItemSelected(item);
 		}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:background="#FFFFFF"
+   android:padding="15dp">
+            
+    <LinearLayout android:id="@+id/Text"
+       android:orientation="vertical"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:paddingLeft="2dip">
+
+        <EditText
+            android:id="@+id/etAddName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/enterName"
+            android:inputType="textPersonName" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/etEmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/enterEmail"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
+
+        
+   
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/ibtnRemoveEntry"
+            android:layout_below="@+id/cbRecNotification"
+            android:text="@string/notify" />
+
+        <CheckBox
+            android:id="@+id/cbRecNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_below="@+id/ibtnRemoveEntry"
+            android:gravity="center_vertical"
+            android:scrollHorizontally="false" />
+
+        <ImageButton
+            android:id="@+id/ibtnRemoveEntry"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/delete"
+            android:src="@drawable/ic_action_cancel" />
+
+</RelativeLayout >
