@@ -3,38 +3,41 @@
    android:layout_height="wrap_content"
    android:background="#FFFFFF"
    android:padding="15dp">
-    <LinearLayout android:id="@+id/Text"
+
+    <LinearLayout 
+       android:id="@+id/llPLVD1"
        android:orientation="vertical"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:paddingLeft="10dip">
+
         <TextView
-         android:id="@+id/Text1"
+         android:id="@+id/txtPLVDEventName"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:textColor="#000000"
-         android:textSize="20dip"
-		 android:text="Event Name" 
+         android:textSize="@dimen/listViewSize"
+		 android:text="@string/eventNameLV" 
          />
         <TextView
-         android:id="@+id/Text2"
+         android:id="@+id/txtPLVDStatus"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:textSize="14dip"
+         android:textSize="@dimen/formSize"
          android:textColor="#000000"
-         android:text="Status" 
+         android:text="@string/statusLV" 
          />
     </LinearLayout>
     
     <TextView
-         android:id="@+id/amount"
+         android:id="@+id/txtPLVDamount"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:textSize="14dip"
+         android:textSize="@dimen/listViewSize"
          android:textColor="#000000"
          android:layout_alignParentRight="true"
 		 android:layout_centerVertical="true"
-         android:text="Amount" 
+         android:text="@string/amountLV" 
          />
 
 </RelativeLayout >

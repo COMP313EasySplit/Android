@@ -35,23 +35,6 @@
    
     </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtNELVRecNotification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/btnRemoveEntry"
-            android:layout_below="@+id/cbRecNotification"
-            android:text="@string/notify" />
-
-        <CheckBox
-            android:id="@+id/cbNELVRecNotification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView1"
-            android:layout_below="@+id/btnRemoveEntry"
-            android:gravity="center_vertical"
-            android:scrollHorizontally="false" />
-
         <ImageButton
             android:id="@+id/btnNELVRemoveEntry"
             android:layout_width="25dp"
@@ -60,5 +43,22 @@
             android:layout_alignParentTop="true"
             android:contentDescription="@string/delete"
             android:src="@drawable/ic_action_cancel" />
+
+        <TextView
+            android:id="@+id/txtNELVRecNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/llNEListview"
+            android:layout_alignParentRight="true"
+            android:text="@string/notify" />
+
+        <CheckBox
+            android:id="@+id/cbNELVRecNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtNELVRecNotification"
+            android:layout_below="@+id/btnNELVRemoveEntry"
+            android:gravity="center_vertical"
+            android:scrollHorizontally="false" />
 
 </RelativeLayout >
