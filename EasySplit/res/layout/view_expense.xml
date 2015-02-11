@@ -1,16 +1,132 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.easysplit.mainview.ViewExpense" >
-
-    <TextView
-        android:layout_width="wrap_content"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/txtVExDateCreated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/dateCreated"
+            android:layout_gravity="center"
+            android:textSize="@dimen/formSize" />
+
+        <TextView
+            android:id="@+id/txtVExDisplayDateCreated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="null"
+            android:layout_gravity="center"
+            android:textSize="@dimen/formSize" />
+    
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtVExPayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/payer"
+            android:layout_gravity="center"
+            android:textSize="@dimen/formSize" />
+
+        <TextView
+            android:id="@+id/txtVExDisplayPayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="null"
+            android:layout_gravity="center"
+            android:textSize="@dimen/formSize" />
+    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtVExAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/amount"
+            android:textSize="@dimen/formSize" />
+
+       <TextView
+            android:id="@+id/txtVExDisplayAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="null"
+            android:textSize="@dimen/formSize" />
+    </LinearLayout>
+    
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginTop="5dp"
+          android:orientation="horizontal" >
+
+          <TextView
+              android:id="@+id/txtVExPlace"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="25dip"
+              android:text="@string/place"
+              android:textSize="@dimen/formSize" />
+		<TextView
+              android:id="@+id/txtVExDisplayPlace"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="25dip"
+              android:text="null"
+              android:textSize="@dimen/formSize" />
+      </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtVExParticipants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/participants"            
+            android:textSize="@dimen/formSize" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvVExSelectParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="196dp"
+        android:layout_marginLeft="30dip" >
+
+    </ListView>
+
+</LinearLayout>

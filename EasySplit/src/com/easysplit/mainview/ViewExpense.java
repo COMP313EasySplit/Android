@@ -25,11 +25,14 @@ public class ViewExpense extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		case R.id.action_edit_expense:
+			// deleteExpense();
+			return true;
+		case R.id.action_delete_expense:
+			// deleteExpense();
+			return true;
 		case R.id.action_home:
 			// openHome();
-			return true;
-		case R.id.action_addNewEvent:
-			// openNewEvent();
 			return true;
 		case R.id.action_accountInfo:
 			//openAccountInfo();

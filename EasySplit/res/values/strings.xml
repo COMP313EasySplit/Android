@@ -45,4 +45,17 @@
 	<string name="amountLV">Amount</string>
 	<string name="addNewExp">Add New Expense</string>
 	<string name="expenseNameLV">Expense Name</string>
+	
+	 <!-- New Expense Strings -->
+    <string name="enterExpense">Enter an Expense Name</string>	
+    <string name="payer">Payer: </string>	
+    <string name="amount">Amount: $</string>
+    <string name="place">Place: </string>
+    <string name="selectPart">Select Participants</string>
+    <string name="split">Split</string>
+    
+    <!-- View Expense Strings -->
+    <string name="deleteExpense">Delete Expense</string>
+    <string name="editExpense">Edit Expense</string>
+	
 </resources>

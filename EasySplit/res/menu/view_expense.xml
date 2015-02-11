@@ -3,16 +3,23 @@
     tools:context="com.example.easysplit.ViewExpense" >
 
     <item
+        android:id="@+id/action_edit_expense"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/editExpense"/>
+    
+     <item
+        android:id="@+id/action_delete_expense"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/deleteExpense"/>
+     
+    <item
         android:id="@+id/action_home"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/home"/>
-    <item
-        android:id="@+id/action_addNewEvent"
-        android:icon="@drawable/ic_action_new"
-        android:orderInCategory="100"
-        android:showAsAction="always"
-        android:title="@string/action_new"/>
+
     <item
         android:id="@+id/action_accountInfo"
         android:orderInCategory="200"

@@ -1,16 +1,128 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.easysplit.mainview.NewExpense" >
+    android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etNExEventName"
+        android:layout_width="225dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:hint="@string/enterExpense" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/txtNExPayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/payer"
+            android:layout_gravity="center"
+            android:textSize="@dimen/formSize" />
+
+        <Spinner
+            android:id="@+id/spNExPayer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtNExAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/amount"
+            android:textSize="@dimen/formSize" />
+
+        <EditText
+            android:id="@+id/etNExAmount"
+            android:layout_width="151dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:textSize="@dimen/formSize"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+    
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginTop="10dp"
+          android:orientation="horizontal" >
+
+          <TextView
+              android:id="@+id/txtNExPlace"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="25dip"
+              android:text="@string/place"
+              android:textSize="@dimen/formSize" />
+
+          <EditText
+              android:id="@+id/etNExPlace"
+              android:layout_width="184dp"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="5dip"
+              android:inputType="text" />
+      </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtNExParticipants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:layout_marginTop="20dp"
+            android:text="@string/participants"            
+            android:textSize="@dimen/formSize" />
+
+        <Button
+            android:id="@+id/btnNExselectPart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:layout_marginTop="20dp"
+            android:text="@string/selectPart"
+            android:textSize="@dimen/buttonTextSize" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvNExSelectParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="196dp"
+        android:layout_marginLeft="5dip" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/btnNExSplit"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_gravity="right"
+        android:layout_weight="1"
+        android:text="@string/split"
+        android:textSize="@dimen/buttonTextSize" />
+
+</LinearLayout>
