@@ -1,15 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
- 
-    <TextView
-        android:id="@+id/detail_tabtext" 
-        android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="llEDDateCreated"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        />
- 
-</RelativeLayout>
+        android:layout_weight="1"
+        android:layout_marginTop="25dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtEDDateCreated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/dateCreated"
+            android:textSize="@dimen/formSize" />
+
+        <TextView
+            android:id="@+id/txtEDDisplayDateCreated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="null"
+            android:textSize="@dimen/formSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="llEDHostName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtEDHostName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/hostName"
+            android:textSize="@dimen/formSize" />
+
+        <TextView
+            android:id="@+id/txtEDDisplayHostName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="null"
+            android:textSize="@dimen/formSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="llEDBudget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtEDBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/budget"
+            android:textSize="@dimen/formSize" />
+
+        <TextView
+            android:id="@+id/txtEDDisplayBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="null"
+            android:textSize="@dimen/formSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="llEDParticipants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtEDParticipants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/participants"
+            android:textSize="@dimen/formSize" />
+
+        <Button
+            android:id="@+id/btnEDSettleParticipants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_marginLeft="35dip"
+             android:textSize="@dimen/formSize"
+            android:text="@string/settleParticipants" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvEDPartDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        android:layout_marginLeft="30dip"
+        android:layout_weight="4" >
+    </ListView>
+
+</LinearLayout>

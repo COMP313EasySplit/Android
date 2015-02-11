@@ -5,14 +5,14 @@
    android:background="#FFFFFF"
    android:padding="15dp">
             
-    <LinearLayout android:id="@+id/Text"
+    <LinearLayout android:id="@+id/llNEListview"
        android:orientation="vertical"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:paddingLeft="2dip">
 
         <EditText
-            android:id="@+id/etAddName"
+            android:id="@+id/etNELVAddName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -23,7 +23,7 @@
         </EditText>
 
         <EditText
-            android:id="@+id/etEmailAddress"
+            android:id="@+id/etNELVEmailAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -36,24 +36,24 @@
     </LinearLayout>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/txtNELVRecNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/ibtnRemoveEntry"
+            android:layout_alignRight="@+id/btnRemoveEntry"
             android:layout_below="@+id/cbRecNotification"
             android:text="@string/notify" />
 
         <CheckBox
-            android:id="@+id/cbRecNotification"
+            android:id="@+id/cbNELVRecNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView1"
-            android:layout_below="@+id/ibtnRemoveEntry"
+            android:layout_below="@+id/btnRemoveEntry"
             android:gravity="center_vertical"
             android:scrollHorizontally="false" />
 
         <ImageButton
-            android:id="@+id/ibtnRemoveEntry"
+            android:id="@+id/btnNELVRemoveEntry"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentRight="true"
