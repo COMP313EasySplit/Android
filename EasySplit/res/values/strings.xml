@@ -3,6 +3,7 @@
 
          <!-- Title Strings -->
     <string name="app_name">EasySplit</string>
+	<string name="hello_world">hello world</string>
     <string name="title_activity_new_event">New Event</string>
     <string name="title_activity_view_event">ViewEvent</string>
     <string name="title_activity_new_expense">NewExpense</string>
