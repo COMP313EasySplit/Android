@@ -38,4 +38,11 @@
 	<string name="participants">Participants: </string> 
 	<string name="hostName">Host Name: </string> 
 	<string name="settleParticipants">Settle Participants</string> 
+	
+	<!-- ListView Strings -->
+	<string name="eventNameLV">Event Name</string>
+	<string name="statusLV">Status</string>
+	<string name="amountLV">Amount</string>
+	<string name="addNewExp">Add New Expense</string>
+	<string name="expenseNameLV">Expense Name</string>
 </resources>
