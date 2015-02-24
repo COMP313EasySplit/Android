@@ -1,4 +1,9 @@
-package com.example.easysplit;
+package com.easysplit.mainview;
+
+import com.example.easysplit.R;
+import com.example.easysplit.R.id;
+import com.example.easysplit.R.layout;
+import com.example.easysplit.R.menu;
 
 import android.app.Activity;
 import android.os.Bundle;

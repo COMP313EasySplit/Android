@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.app.ActionBar;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.easysplit.fragments.EventHostTabFragment;
@@ -59,10 +60,12 @@ public class MainActivity extends Activity {
 
 		switch (item.getItemId()) {
 		case R.id.action_home:
-			// openHome();
+			Intent homeIntent = new Intent(MainActivity.this, MainActivity.class);
+			startActivity(homeIntent);
 			return true;
 		case R.id.action_addNewEvent:
-			// openNewEvent();
+			Intent newEventIntent = new Intent(MainActivity.this, NewEvent.class);
+			startActivity(newEventIntent);
 			return true;
 		case R.id.action_accountInfo:
 			//openAccountInfo();
