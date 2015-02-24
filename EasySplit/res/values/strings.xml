@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-         <!-- Title Strings -->
+    <!-- Title Strings -->
     <string name="app_name">EasySplit</string>
-	<string name="hello_world">hello world</string>
+    <string name="hello_world">hello world</string>
     <string name="title_activity_new_event">New Event</string>
     <string name="title_activity_view_event">ViewEvent</string>
     <string name="title_activity_new_expense">NewExpense</string>
     <string name="title_activity_view_expense">ViewExpense</string>
     <string name="title_activity_edit_expense">EditExpense</string>
-    
-    <!-- General Strings -->    
+
+    <!-- General Strings -->
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
-    <string name="delete">Delete</string> 
-      
-    
+    <string name="delete">Delete</string>
+
     <!-- Navigation Strings -->
     <string name="action_new">Add New Event</string>
     <string name="accountInfo">View Account</string>
     <string name="logout">Logout</string>
     <string name="home">Home</string>
-   
-    
+
     <!-- New Event Strings -->
-    <string name="eventName">Event Name:</string>	
-	<string name="eventString">Enter an event name</string>
-	<string name="budget">Budget: $</string>
-	<string name="addPart">Add Participants: </string>
-	<string name="findPart">Find Participants</string>
-	<string name="notify">Notify?</string>
-	<string name="enterName">Enter name</string>
-	<string name="enterEmail">Enter email</string>
-	
-	<!-- View Event Details Strings -->
-	<string name="dateCreated">Date Created: </string>
-	<string name="participants">Participants: </string> 
-	<string name="hostName">Host Name: </string> 
-	<string name="settleParticipants">Settle Participants</string> 
-	
-	<!-- ListView Strings -->
-	<string name="eventNameLV">Event Name</string>
-	<string name="statusLV">Status</string>
-	<string name="amountLV">Amount</string>
-	<string name="addNewExp">Add New Expense</string>
-	<string name="expenseNameLV">Expense Name</string>
-	
-	 <!-- New Expense Strings -->
-    <string name="enterExpense">Enter an Expense Name</string>	
-    <string name="payer">Payer: </string>	
+    <string name="eventName">Event Name:</string>
+    <string name="eventString">Enter an event name</string>
+    <string name="budget">Budget: $</string>
+    <string name="addPart">Add Participants: </string>
+    <string name="findPart">Find Participants</string>
+    <string name="notify">Notify?</string>
+    <string name="enterName">Enter name</string>
+    <string name="enterEmail">Enter email</string>
+
+    <!-- View Event Details Strings -->
+    <string name="dateCreated">Date Created: </string>
+    <string name="participants">Participants: </string>
+    <string name="hostName">Host Name: </string>
+    <string name="settleParticipants">Settle Participants</string>
+
+    <!-- ListView Strings -->
+    <string name="eventNameLV">Event Name</string>
+    <string name="statusLV">Status</string>
+    <string name="amountLV">Amount</string>
+    <string name="addNewExp">Add New Expense</string>
+    <string name="expenseNameLV">Expense Name</string>
+
+    <!-- New Expense Strings -->
+    <string name="enterExpense">Enter an Expense Name</string>
+    <string name="payer">Payer: </string>
     <string name="amount">Amount: $</string>
     <string name="place">Place: </string>
     <string name="selectPart">Select Participants</string>
-    <string name="split">Save & Split</string>
-    
+    <string name="split">Save &amp; Split</string>
+
     <!-- View Expense Strings -->
     <string name="deleteExpense">Delete Expense</string>
     <string name="editExpense">Edit Expense</string>
-	
+    <string name="title_activity_register_account">RegisterAccount</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
