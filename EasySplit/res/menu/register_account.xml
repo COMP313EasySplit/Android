@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.easysplit.RegisterAccount" >
+
+    <item
+        android:id="@+id/action_cancel"
+        android:orderInCategory="200"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_cancel"
+        android:title="@string/cancel"/>
+
+</menu>

@@ -14,7 +14,6 @@ import android.support.v4.view.ViewPager;
 import android.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.easysplit.fragments.EventHostTabFragment;
 import com.easysplit.fragments.ParticipantTabFragment;
 import com.example.easysplit.R;
