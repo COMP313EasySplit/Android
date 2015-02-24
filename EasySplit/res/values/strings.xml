@@ -52,7 +52,7 @@
     <string name="amount">Amount: $</string>
     <string name="place">Place: </string>
     <string name="selectPart">Select Participants</string>
-    <string name="split">Split</string>
+    <string name="split">Save & Split</string>
     
     <!-- View Expense Strings -->
     <string name="deleteExpense">Delete Expense</string>
