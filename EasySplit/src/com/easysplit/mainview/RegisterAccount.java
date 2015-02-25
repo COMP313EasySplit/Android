@@ -6,6 +6,7 @@ import com.example.easysplit.R.layout;
 import com.example.easysplit.R.menu;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,13 +28,11 @@ public class RegisterAccount extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 	
 		switch (item.getItemId()) {
 		case R.id.action_cancel:
-			// openCancel();
+			Intent cancelIntentRA = new Intent(RegisterAccount.this, UserLogin.class);
+			startActivity(cancelIntentRA);
 			return true;		
 		default:
 			return super.onOptionsItemSelected(item);

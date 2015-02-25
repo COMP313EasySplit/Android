@@ -8,11 +8,11 @@
         android:showAsAction="never"
         android:title="@string/home"/>
     <item
-        android:id="@+id/action_addNewEvent"
+        android:id="@+id/action_addNewExpense"
         android:icon="@drawable/ic_action_new"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:title="@string/action_new"/>
+        android:title="@string/title_activity_new_expense"/>
     <item
         android:id="@+id/action_accountInfo"
         android:orderInCategory="200"

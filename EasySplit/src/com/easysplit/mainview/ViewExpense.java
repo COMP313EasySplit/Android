@@ -3,6 +3,7 @@ package com.easysplit.mainview;
 import com.example.easysplit.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,19 +27,24 @@ public class ViewExpense extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.action_edit_expense:
-			// deleteExpense();
+			Intent editExIntentVE = new Intent(ViewExpense.this, EditExpense.class);
+			startActivity(editExIntentVE);
 			return true;
 		case R.id.action_delete_expense:
 			// deleteExpense();
 			return true;
 		case R.id.action_home:
-			// openHome();
+			Intent homeIntentVE = new Intent(ViewExpense.this, MainActivity.class);
+			startActivity(homeIntentVE);
 			return true;
 		case R.id.action_accountInfo:
-			//openAccountInfo();
+			Intent accountInfoIntent = new Intent(ViewExpense.this, AccountInfo.class);
+			startActivity(accountInfoIntent);
 			return true;
 		case R.id.action_logout:
-			//processLogout();
+			//processLogout(); need to deactivate user credentials
+			Intent logoutIntentVEx = new Intent(ViewExpense.this, UserLogin.class);
+			startActivity(logoutIntentVEx);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

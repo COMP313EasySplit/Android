@@ -42,6 +42,18 @@
             android:name="com.easysplit.mainview.EditExpense"
             android:label="@string/title_activity_edit_expense" >
         </activity>
+        <activity
+            android:name="com.easysplit.mainview.RegisterAccount"
+            android:label="@string/title_activity_register_account" >
+        </activity>
+        <activity
+            android:name="com.easysplit.mainview.AccountInfo"
+            android:label="@string/title_activity_account_info" >
+        </activity>
+        <activity
+            android:name="com.easysplit.mainview.UserLogin"
+            android:label="@string/title_activity_user_login" >
+        </activity>
     </application>
 
 </manifest>

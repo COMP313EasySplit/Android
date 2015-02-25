@@ -13,6 +13,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,16 +59,21 @@ public class ViewEvent extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.action_home:
-			// openHome();
+			Intent homeIntentVE = new Intent(ViewEvent.this, MainActivity.class);
+			startActivity(homeIntentVE);
 			return true;
-		case R.id.action_addNewEvent:
-			// openNewEvent();
+		case R.id.action_addNewExpense:
+			Intent newExIntentVE = new Intent(ViewEvent.this, NewExpense.class);
+			startActivity(newExIntentVE);
 			return true;
 		case R.id.action_accountInfo:
-			//openAccountInfo();
+			Intent accountInfoIntentVE = new Intent(ViewEvent.this, AccountInfo.class);
+			startActivity(accountInfoIntentVE);
 			return true;
 		case R.id.action_logout:
-			//processLogout();
+			//processLogout(); need to deactivate user credentials
+			Intent logoutIntentVE = new Intent(ViewEvent.this, UserLogin.class);
+			startActivity(logoutIntentVE);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

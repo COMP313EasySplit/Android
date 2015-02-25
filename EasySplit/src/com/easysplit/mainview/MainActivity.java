@@ -60,18 +60,21 @@ public class MainActivity extends Activity {
 
 		switch (item.getItemId()) {
 		case R.id.action_home:
-			Intent homeIntent = new Intent(MainActivity.this, MainActivity.class);
-			startActivity(homeIntent);
+			Intent homeIntentMA = new Intent(MainActivity.this, MainActivity.class);
+			startActivity(homeIntentMA);
 			return true;
 		case R.id.action_addNewEvent:
-			Intent newEventIntent = new Intent(MainActivity.this, NewEvent.class);
-			startActivity(newEventIntent);
+			Intent newEventIntentMA = new Intent(MainActivity.this, NewEvent.class);
+			startActivity(newEventIntentMA);
 			return true;
 		case R.id.action_accountInfo:
-			//openAccountInfo();
+			Intent accountInfoIntentMA = new Intent(MainActivity.this, AccountInfo.class);
+			startActivity(accountInfoIntentMA);
 			return true;
 		case R.id.action_logout:
 			//processLogout();
+			Intent logoutIntentMA = new Intent(MainActivity.this, UserLogin.class);
+			startActivity(logoutIntentMA);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

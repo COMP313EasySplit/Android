@@ -3,6 +3,7 @@ package com.easysplit.mainview;
 import com.example.easysplit.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +28,8 @@ public class NewEvent extends Activity {
 
 		switch (item.getItemId()) {
 		case R.id.action_cancel:
-			// cancel();
+			Intent homeIntentNEv = new Intent(NewEvent.this, MainActivity.class);
+			startActivity(homeIntentNEv);
 			return true;		
 		default:
 			return super.onOptionsItemSelected(item);
