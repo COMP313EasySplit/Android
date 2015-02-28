@@ -12,6 +12,11 @@ public final class R {
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
+
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
          */
         public static final int activity_horizontal_margin=0x7f040000;
         public static final int activity_vertical_margin=0x7f040001;
@@ -26,14 +31,20 @@ public final class R {
         public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int action_accountInfo=0x7f080055;
-        public static final int action_addNewEvent=0x7f080054;
-        public static final int action_cancel=0x7f080051;
-        public static final int action_delete=0x7f080052;
-        public static final int action_delete_expense=0x7f080058;
-        public static final int action_edit_expense=0x7f080057;
-        public static final int action_home=0x7f080053;
-        public static final int action_logout=0x7f080056;
+        public static final int action_accountInfo=0x7f08005d;
+        public static final int action_addNewEvent=0x7f08005c;
+        public static final int action_addNewExpense=0x7f080065;
+        public static final int action_cancel=0x7f080059;
+        public static final int action_delete=0x7f08005a;
+        public static final int action_delete_expense=0x7f080067;
+        public static final int action_editExpense1=0x7f08005f;
+        public static final int action_edit_expense=0x7f080066;
+        public static final int action_home=0x7f08005b;
+        public static final int action_login1=0x7f080062;
+        public static final int action_logout=0x7f08005e;
+        public static final int action_newexpense1=0x7f080060;
+        public static final int action_registeraccount1=0x7f080061;
+        public static final int action_settings=0x7f080058;
         public static final int btnEDSettleParticipants=0x7f080016;
         public static final int btnEExSave=0x7f08000a;
         public static final int btnEExselectPart=0x7f080008;
@@ -42,6 +53,7 @@ public final class R {
         public static final int btnNESearch=0x7f08002c;
         public static final int btnNExSplit=0x7f08003a;
         public static final int btnNExselectPart=0x7f080038;
+        public static final int btnRARegister=0x7f08004d;
         public static final int cbNELVRecNotification=0x7f080040;
         public static final int etEExAmount=0x7f080004;
         public static final int etEExPlace=0x7f080006;
@@ -52,6 +64,9 @@ public final class R {
         public static final int etNExAmount=0x7f080034;
         public static final int etNExEventName=0x7f080030;
         public static final int etNExPlace=0x7f080036;
+        public static final int etRAEmail=0x7f08004a;
+        public static final int etRAName=0x7f080048;
+        public static final int etRAPassword=0x7f08004c;
         public static final int fragment_container=0x7f080000;
         public static final int glNE1=0x7f080026;
         public static final int hostEventList=0x7f080025;
@@ -70,7 +85,7 @@ public final class R {
         public static final int lvNEparticipants=0x7f08002e;
         public static final int lvNExSelectParticipants=0x7f080039;
         public static final int lvPTFPartEventList=0x7f080046;
-        public static final int lvVExSelectParticipants=0x7f080050;
+        public static final int lvVExSelectParticipants=0x7f080057;
         public static final int participantEventList=0x7f08001a;
         public static final int spNExPayer=0x7f080032;
         public static final int summary_tabtext=0x7f080019;
@@ -104,48 +119,66 @@ public final class R {
         public static final int txtPLVDEventName=0x7f080042;
         public static final int txtPLVDStatus=0x7f080043;
         public static final int txtPLVDamount=0x7f080044;
-        public static final int txtVExAmount=0x7f08004b;
-        public static final int txtVExDateCreated=0x7f080047;
-        public static final int txtVExDisplayAmount=0x7f08004c;
-        public static final int txtVExDisplayDateCreated=0x7f080048;
-        public static final int txtVExDisplayPayer=0x7f08004a;
-        public static final int txtVExDisplayPlace=0x7f08004e;
-        public static final int txtVExParticipants=0x7f08004f;
-        public static final int txtVExPayer=0x7f080049;
-        public static final int txtVExPlace=0x7f08004d;
+        public static final int txtRAEmail=0x7f080049;
+        public static final int txtRAName=0x7f080047;
+        public static final int txtRAPassword=0x7f08004b;
+        public static final int txtVExAmount=0x7f080052;
+        public static final int txtVExDateCreated=0x7f08004e;
+        public static final int txtVExDisplayAmount=0x7f080053;
+        public static final int txtVExDisplayDateCreated=0x7f08004f;
+        public static final int txtVExDisplayPayer=0x7f080051;
+        public static final int txtVExDisplayPlace=0x7f080055;
+        public static final int txtVExParticipants=0x7f080056;
+        public static final int txtVExPayer=0x7f080050;
+        public static final int txtVExPlace=0x7f080054;
         public static final int viewNE1=0x7f080028;
         public static final int viewNE2=0x7f08002d;
+        public static final int viewevent1=0x7f080063;
+        public static final int viewexpense1=0x7f080064;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int edit_expense=0x7f030001;
-        public static final int event_detail_fragment=0x7f030002;
-        public static final int event_expense_fragment=0x7f030003;
-        public static final int event_summary_fragment=0x7f030004;
-        public static final int eventexpense_listview_details=0x7f030005;
-        public static final int eventhost_listview_details=0x7f030006;
-        public static final int host_tab_fragment=0x7f030007;
-        public static final int new_event=0x7f030008;
-        public static final int new_expense=0x7f030009;
-        public static final int newevent_listview_details=0x7f03000a;
-        public static final int participant_listview_details=0x7f03000b;
-        public static final int participant_tab_fragment=0x7f03000c;
-        public static final int view_event=0x7f03000d;
-        public static final int view_expense=0x7f03000e;
+        public static final int account_info=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int edit_expense=0x7f030002;
+        public static final int event_detail_fragment=0x7f030003;
+        public static final int event_expense_fragment=0x7f030004;
+        public static final int event_summary_fragment=0x7f030005;
+        public static final int eventexpense_listview_details=0x7f030006;
+        public static final int eventhost_listview_details=0x7f030007;
+        public static final int host_tab_fragment=0x7f030008;
+        public static final int new_event=0x7f030009;
+        public static final int new_expense=0x7f03000a;
+        public static final int newevent_listview_details=0x7f03000b;
+        public static final int participant_listview_details=0x7f03000c;
+        public static final int participant_tab_fragment=0x7f03000d;
+        public static final int register_account=0x7f03000e;
+        public static final int user_login=0x7f03000f;
+        public static final int view_event=0x7f030010;
+        public static final int view_expense=0x7f030011;
     }
     public static final class menu {
-        public static final int edit_expense=0x7f070000;
-        public static final int main=0x7f070001;
-        public static final int new_event=0x7f070002;
-        public static final int new_expense=0x7f070003;
-        public static final int view_event=0x7f070004;
-        public static final int view_expense=0x7f070005;
+        public static final int account_info=0x7f070000;
+        public static final int edit_expense=0x7f070001;
+        public static final int main=0x7f070002;
+        public static final int new_event=0x7f070003;
+        public static final int new_expense=0x7f070004;
+        public static final int register_account=0x7f070005;
+        public static final int user_login=0x7f070006;
+        public static final int view_event=0x7f070007;
+        public static final int view_expense=0x7f070008;
     }
     public static final class string {
+        public static final int RAEmail=0x7f050028;
+        /**  Register Account Strings 
+         */
+        public static final int RAName=0x7f050027;
+        public static final int RAPassword=0x7f050029;
+        public static final int RARegister=0x7f05002a;
         public static final int accountInfo=0x7f05000b;
         /**  Navigation Strings 
          */
         public static final int action_new=0x7f05000a;
+        public static final int action_settings=0x7f05002b;
         public static final int addNewExp=0x7f05001d;
         public static final int addPart=0x7f050011;
         public static final int amount=0x7f050021;
@@ -192,9 +225,12 @@ public final class R {
         public static final int settleParticipants=0x7f050019;
         public static final int split=0x7f050024;
         public static final int statusLV=0x7f05001b;
+        public static final int title_activity_account_info=0x7f05002d;
         public static final int title_activity_edit_expense=0x7f050006;
         public static final int title_activity_new_event=0x7f050002;
         public static final int title_activity_new_expense=0x7f050004;
+        public static final int title_activity_register_account=0x7f05002c;
+        public static final int title_activity_user_login=0x7f05002e;
         public static final int title_activity_view_event=0x7f050003;
         public static final int title_activity_view_expense=0x7f050005;
     }

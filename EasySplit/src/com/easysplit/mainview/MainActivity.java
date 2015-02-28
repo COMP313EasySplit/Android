@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import com.easysplit.fragments.EventHostTabFragment;
 import com.easysplit.fragments.ParticipantTabFragment;
 import com.example.easysplit.R;
+import com.easysplit.base.*;
 
 public class MainActivity extends Activity {
 
@@ -30,6 +31,10 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		// set global variable // for testing initializing
+		final EasySplitGlobal esGlobal = (EasySplitGlobal) this.getApplicationContext();
+		esGlobal.setHostID(1);
 
 		// Action bar tab code
 		ActionBar bar = getActionBar();
