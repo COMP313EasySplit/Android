@@ -1,16 +1,106 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.easysplit.mainview.UserLogin" >
+    android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
+     <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.35"
+        android:orientation="horizontal" >
+        </LinearLayout>
 
-</RelativeLayout>
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop=100dp"
+        android:layout_marginLeft=25dip"
+        android:layout_weight="0.35"
+        android:orientation="horizontal" >
+     
+     <TextView
+         android:id="@+id/txtULLoginText"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_weight="0.35"
+         android:text="@string/logintext" 
+         android:textSize="@dimen/formSize"
+         />
+</LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop=50dp"
+        android:layout_weight="0.35"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtULEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/RAEmail"
+            android:textSize="@dimen/formSize" />
+
+        <EditText
+            android:id="@+id/etULEmail"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="@dimen/formSize" >
+
+            <requestFocus />
+        </EditText>
+
+    </LinearLayout>
+    
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:layout_weight="0.35"
+          android:orientation="horizontal" >
+
+          <TextView
+              android:id="@+id/txtULPassword"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="25dip"
+              android:text="@string/RAPassword"
+              android:textSize="@dimen/formSize" />
+
+          <EditText
+              android:id="@+id/etULPassword"
+              android:layout_width="184dp"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="5dip"
+              android:inputType="textPassword" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="200dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginTop="150dp"
+          android:layout_gravity="center"
+          android:orientation="horizontal" >
+
+          <Button
+              android:id="@+id/btnULLogin"
+              android:layout_width="100dp"
+              android:layout_height="40dp"
+              android:text="@string/title_activity_user_login" />
+
+           <Button
+        android:id="@+id/btnULRegister"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="@string/RARegister" />
+
+</LinearLayout>
+</LinearLayout>
