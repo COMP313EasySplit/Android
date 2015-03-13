@@ -116,13 +116,33 @@
 
     </ListView>
 
-    <Button
-        android:id="@+id/btnNExSplit"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_gravity="right"
-        android:layout_weight="1"
-        android:text="@string/split"
-        android:textSize="@dimen/buttonTextSize" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_weight="1"
+            android:src="@drawable/ic_action_new_dark"
+            android:layout_width="100dip"
+            android:layout_height="100dip" />
+
+        <Button
+            android:id="@+id/btnNExPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Take Photo"  
+            android:onClick="btnNexPhoto"/>
+
+        <Button
+            android:id="@+id/btnNExSplit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/split"
+            android:textSize="@dimen/buttonTextSize"/>
+
+    </LinearLayout>
 
 </LinearLayout>
