@@ -34,16 +34,16 @@ public class NewEvent extends Activity {
 		Button btnNESave = (Button) findViewById(R.id.btnNESave);
 		btnNESave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	
+            	/*
             	if(isConnected()){
             		Toast.makeText(getApplicationContext(), "You are conncted",  Toast.LENGTH_SHORT).show();
                 }
                 else{
             		Toast.makeText(getApplicationContext(), "You are NOT conncted",  Toast.LENGTH_SHORT).show();
                 }
-            	
+            	*/
            	
-            	addEvent.execute();
+            	addEvent.execute();	// call add event request to connect to web service
             }
         });
 	}
@@ -82,23 +82,25 @@ public class NewEvent extends Activity {
         @Override
 		protected String doInBackground(String... params) {
 			String result = null;
-			EasySplitRequest request = new EasySplitRequest(NewEvent.this);
+			EasySplitRequest request = new EasySplitRequest(NewEvent.this);	// create reqeust
 
-        	EditText etNEName = (EditText) findViewById(R.id.etNEEventName);
+        	EditText etNEName = (EditText) findViewById(R.id.etNEEventName);	// get name
         	String name = etNEName.getText().toString();
         	
-        	EditText etNEBudget = (EditText) findViewById(R.id.etNEBudget);
+        	EditText etNEBudget = (EditText) findViewById(R.id.etNEBudget);		// get budge
         	double budget = Double.parseDouble( etNEBudget.getText().toString() );
         	
-    		final EasySplitGlobal esGlobal = (EasySplitGlobal) getApplicationContext();
+    		final EasySplitGlobal esGlobal = (EasySplitGlobal) getApplicationContext();	// get login user id
         	int hostID = esGlobal.getHostID();
 			
-			
 			try {
-				result = request.addEvent(name,budget,hostID);
+				result = request.addEvent(name,budget,hostID);	// call web service
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (HttpException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (TimeoutException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -107,7 +109,13 @@ public class NewEvent extends Activity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(getBaseContext(), result, Toast.LENGTH_LONG).show();
+        	
+        	if (result.equals("true"))
+        	{
+        		Toast.makeText(getBaseContext(), "Event has been saved.", Toast.LENGTH_SHORT).show();
+
+        		finish();
+        	}
        }
     }
 }
