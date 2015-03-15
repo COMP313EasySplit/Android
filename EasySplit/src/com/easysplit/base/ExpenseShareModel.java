@@ -1,7 +1,7 @@
 package com.easysplit.base;
 
 public class ExpenseShareModel {
-int ExpenseID;
-UserModel SharedBy;
-double SharedAmount;
+	public int ExpenseID;
+	public UserModel SharedBy;
+	public double SharedAmount;
 }

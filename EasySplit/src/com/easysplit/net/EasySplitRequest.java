@@ -2,6 +2,7 @@ package com.easysplit.net;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeoutException;
 
 import org.apache.http.HttpException;
 import org.apache.http.NameValuePair;
@@ -23,21 +24,23 @@ public class EasySplitRequest {
 		mContext = context;
 	}
 
-	public String getUrl(String serviceName) {
+	private String getUrl(String serviceName) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(serviceUrl).append(serviceName);
 		return sb.toString();
 	}
 	
-	public String getEvent(int hostID) throws HttpException, IOException
-	{	//http://54.191.15.241/EasySplitService/EasySplitService.svc/showHostEvents?hostid=1
+	public String getEvent(int hostID) throws HttpException, IOException, TimeoutException
+	{	//http://54.191.15.241/EasySplitService/EasySplitService.svc/showHostEvents/1
 		ArrayList<NameValuePair> strParams = new ArrayList<NameValuePair>();
+		String url ="";
 		if ( hostID != 0) {
-			strParams.add(new BasicNameValuePair("hostid", Integer.toString(hostID)));
+			//strParams.add(new BasicNameValuePair("hostid", Integer.toString(hostID)));
+			url = getUrl("showHostEvents") + "/" + hostID;
 		}else{
 			return null;
 		}
-		return baseRequest.getRequestByHttpClient(strParams, getUrl("showHostEvents"));
+		return baseRequest.postRequestByHttpClient(strParams, url);
 	}
 	
 	public String addEvent(String name, double budget, int hostID) throws HttpException, IOException

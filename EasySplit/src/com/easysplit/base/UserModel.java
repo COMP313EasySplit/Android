@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class UserModel {
 
-	int UserID;
-	String FirstName;
-	String LastName;
-	String Email;
-	String Passcode;
-	String Salt;
-	String Status;
-	Date DateCreated;
-	EventModel[] HostEvents;
-	EventModel[] ParticitEvents;
+	public int UserID;
+	public String FirstName;
+	public String LastName;
+	public String Email;
+	public String Passcode;
+	public String Salt;
+	public String Status;
+	public Date DateCreated;
+	public EventModel[] HostEvents;
+	public EventModel[] ParticitEvents;
 }

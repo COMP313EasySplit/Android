@@ -107,5 +107,28 @@ public class BaseRequest {
 
 		return result;
 	}
+	
+	
+	/**
 
+	 * @throws IOException
+	 * @throws ClientProtocolException
+	 * @throws HttpException
+	 * @throws TimeoutException
+	 */
+	public String postRequestByHttpClient(List<NameValuePair> params, String url)
+			throws IOException, TimeoutException {
+		String result = null;
+		HttpPost request = new HttpPost(url);
+		HttpEntity entity = new UrlEncodedFormEntity(params, HTTP.UTF_8);
+		request.setEntity(entity);
+		HttpResponse response = client.execute(request);
+		int httpStatusCode = response.getStatusLine().getStatusCode();
+		if (httpStatusCode == HttpStatus.SC_OK) {
+			result = EntityUtils.toString(response.getEntity(), HTTP.UTF_8);
+		} else {
+			throw new TimeoutException();
+		}
+		return result;
+	}
 }

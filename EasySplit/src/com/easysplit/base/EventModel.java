@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class EventModel {
     
-	int eventId;
-    String name;
-    UserModel EvehHost;
-    double budget;
-    String status;
-    Date dateCreated;
-	ExpenseModel[] Expenses;
-	UserModel[] Participants;
+	public int EventId;
+	public String Name;
+	//public UserModel EvehHost;
+	public double Budget;
+	public String Status;
+	//public Date DateCreated;
+	//public ExpenseModel[] Expenses;
+	//public UserModel[] Participants;
     
 }
