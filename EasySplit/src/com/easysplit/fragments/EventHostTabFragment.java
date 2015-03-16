@@ -9,6 +9,7 @@ import org.apache.http.HttpException;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -88,6 +89,7 @@ public class EventHostTabFragment extends Fragment {
         	for (EventModel event : eventList)
         	{
         		HashMap<String, String> map = new HashMap<String, String>();
+        		map.put("EventId", Integer.toString(event.EventId));
                 map.put("txtELVDEventName", event.Name);
                 map.put("txtELVDStatus", event.Status);
                 map.put("txtELVDAmount", Double.toString( event.Budget) );
@@ -102,18 +104,20 @@ public class EventHostTabFragment extends Fragment {
             ListView hostEventList = (ListView) fragment_v.findViewById(R.id.hostEventList);
             hostEventList.setAdapter(adapter);
             
-            /*
+            
             hostEventList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
-                    Toast.makeText(getActivity().getApplicationContext(), 
-                    		"You Clicked at "+elist.get(+position).get("txtELVDEventName"), Toast.LENGTH_SHORT).show();
+                	//Log.v("Type 1", "Clicked");
+                   int eventId = Integer.parseInt(elist.get(position).get("EventId"));
+                   
+                   Intent viewEventIntent = new Intent(getActivity().getApplicationContext(), com.easysplit.mainview.ViewEvent.class);
+                   viewEventIntent.putExtra("eventId", Integer.toString(eventId)); //Optional parameters
+                   startActivity(viewEventIntent);
+                   
                 }
             });
-            */
-            
-            //Toast.makeText(thiscontext, result, Toast.LENGTH_LONG).show();
        }
     }
 }

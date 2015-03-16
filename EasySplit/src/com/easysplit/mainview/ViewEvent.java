@@ -15,6 +15,7 @@ import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -46,6 +47,11 @@ public class ViewEvent extends Activity {
 				actionBar.addTab(tab1);
 				actionBar.addTab(tab2);
 				actionBar.addTab(tab3);
+				
+				
+				Intent intent = getIntent();
+				String eventId = intent.getStringExtra("eventId");
+				Log.v("Type 1", "Loading event: " + eventId);
 	}
 
 	@Override

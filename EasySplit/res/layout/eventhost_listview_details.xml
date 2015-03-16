@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
-    android:padding="15dp" >
+    android:padding="15dp"
+ android:descendantFocusability="blocksDescendants" >
 
     <LinearLayout
         android:id="@+id/llELVD1"
@@ -19,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="@string/eventNameLV"
             android:textColor="#000000"
-            android:textSize="@dimen/listViewSize" />
+            android:textSize="@dimen/listViewSize"/>
 
         <TextView
             android:id="@+id/txtELVDStatus"
