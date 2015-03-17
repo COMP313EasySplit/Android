@@ -23,6 +23,16 @@ public class EventDetailsFragment extends Fragment{
 		String eventId = getArguments().getString("eventId");  
 		Log.v("Type 1", "Loading event: " + eventId);		
 		
+	    Button btn1 = (Button) view.findViewById(R.id.btnEDSettleParticipants);
+	    btn1.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	            // TODO Auto-generated method stub
+	            Intent intent = new Intent(getActivity(), SettleParticipants.class);
+	            startActivity(intent);
+	        }
+	    });
+
 		return view;
 	}
 }

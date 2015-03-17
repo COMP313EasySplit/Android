@@ -87,6 +87,12 @@
             android:windowSoftInputMode="adjustPan"
             >
         </activity>
+        <activity
+            android:name=".SettleParticipants"
+            android:label="@string/title_activity_settle_participants" 
+            android:windowSoftInputMode="adjustPan"
+            >
+        </activity>
     </application>
 
 </manifest>
