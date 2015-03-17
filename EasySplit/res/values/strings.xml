@@ -65,7 +65,9 @@
     <string name="title_activity_register_account">Register Account</string>
     <string name="title_activity_account_info">Account Information</string>
     <string name="title_activity_user_login">Login</string>
-	<string name="logintext">Enter login credentials below:</string>
-<string name="notepref">Notification Preference:</string>
+    <string name="logintext">Enter login credentials below:</string>
+    <string name="notepref">Notification Preference:</string>
     <string name="accreationdate">Account Creation Date:</string>
+
+    <string name="sendSummary">Send Summary</string>
 </resources>
