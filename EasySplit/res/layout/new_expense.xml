@@ -10,7 +10,11 @@
         android:layout_height="36dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:hint="@string/enterExpense" />
+        android:inputType="text" 
+        android:hint="@string/enterExpense" >
+        
+        <requestFocus />        
+       </EditText>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,7 +61,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dip"
             android:textSize="@dimen/formSize"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal" >
+            
+            <requestFocus />        
+       </EditText>
     </LinearLayout>
     
       <LinearLayout
@@ -80,7 +87,10 @@
               android:layout_width="184dp"
               android:layout_height="wrap_content"
               android:layout_marginLeft="5dip"
-              android:inputType="text" />
+              android:inputType="text" >
+          
+          <requestFocus />        
+       </EditText>
       </LinearLayout>
 
     <LinearLayout

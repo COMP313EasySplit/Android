@@ -79,7 +79,9 @@
               android:layout_width="184dp"
               android:layout_height="wrap_content"
               android:layout_marginLeft="5dip"
-              android:inputType="textPassword" />
+              android:inputType="textPassword" >
+               <requestFocus />        
+       </EditText>
       </LinearLayout>
 
       <LinearLayout
