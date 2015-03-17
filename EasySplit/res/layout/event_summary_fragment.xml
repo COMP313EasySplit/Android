@@ -49,14 +49,15 @@
         android:layout_weight="1" />
 
       </LinearLayout>
+
     <ScrollView
         android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="282dp"
         android:layout_marginTop="5dip"
+        android:fadeScrollbars="false"
         android:fillViewport="true"
         android:scrollbarStyle="outsideInset"
-        android:fadeScrollbars="false"
         android:scrollbars="horizontal|vertical" >
 
         <HorizontalScrollView
@@ -93,4 +94,17 @@
     </LinearLayout>
 -->
 
+ <LinearLayout
+     android:layout_width="fill_parent"
+     android:layout_height="63dp"
+     android:orientation="vertical" >
+
+     <Button
+         android:id="@+id/btnESFSendSummary"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:text="@string/sendSummary" />
+        
+      </LinearLayout>
 </LinearLayout>
