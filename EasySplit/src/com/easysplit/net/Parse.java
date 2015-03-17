@@ -22,8 +22,22 @@ public class Parse {
 			EventModel cse = gson.fromJson(obj, EventModel.class);
 			lcs.add(cse);
 		}
-
 		return lcs;
 	}
+	
+	public static ArrayList<ExpenseModel> getEventExpensesList(String str) throws JsonSyntaxException
+	{
+		Gson gson = new Gson();
+		JsonParser parser = new JsonParser();
+		JsonArray Jarray = parser.parse(str).getAsJsonArray();
+		ArrayList<ExpenseModel> lcs = new ArrayList<ExpenseModel>();
+		for (JsonElement obj : Jarray) {
+			ExpenseModel cse = gson.fromJson(obj, ExpenseModel.class);
+			lcs.add(cse);
+		}
+		return lcs;
+		
+	}
+	
 	
 }

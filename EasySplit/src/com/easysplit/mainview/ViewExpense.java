@@ -5,6 +5,7 @@ import com.example.easysplit.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,6 +15,10 @@ public class ViewExpense extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_expense);
+		
+		Intent intent = getIntent();
+		String expenseId = intent.getStringExtra("expenseId");
+		Log.v("Type 1", "Loading expense id = " + expenseId);	
 	}
 
 	@Override

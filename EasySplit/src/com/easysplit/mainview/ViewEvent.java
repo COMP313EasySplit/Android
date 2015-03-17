@@ -48,10 +48,15 @@ public class ViewEvent extends Activity {
 				actionBar.addTab(tab2);
 				actionBar.addTab(tab3);
 				
-				
 				Intent intent = getIntent();
 				String eventId = intent.getStringExtra("eventId");
-				Log.v("Type 1", "Loading event: " + eventId);
+				Log.v("Type 1", "Creating View Event Activity");				
+				
+				Bundle eventBundle = new Bundle();
+				eventBundle.putString("eventId", eventId);
+				fragmentTab1.setArguments(eventBundle);
+				fragmentTab2.setArguments(eventBundle);
+				fragmentTab3.setArguments(eventBundle);
 	}
 
 	@Override

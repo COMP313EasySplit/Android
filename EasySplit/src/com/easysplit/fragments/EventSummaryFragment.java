@@ -12,6 +12,7 @@ import android.app.ListFragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,12 @@ public class EventSummaryFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.event_summary_fragment,
 				container, false);
-
+		Log.v("Type 1","Creating Event Summary Fragment");
+		
+		String eventId = getArguments().getString("eventId");  
+		Log.v("Type 1", "Loading event summary: " + eventId);
+		
+		
 		partSpinner = (Spinner) view.findViewById(R.id.spESFName);
 		ArrayList<String> list = new ArrayList<String>();
 		// add items to list
