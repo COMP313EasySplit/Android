@@ -9,7 +9,7 @@
         android:layout_width="225dp"
         android:layout_height="36dp"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:inputType="text" 
         android:hint="@string/enterExpense" >
         
@@ -42,8 +42,7 @@
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="31dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal" >
 
@@ -69,8 +68,7 @@
     
       <LinearLayout
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
+          android:layout_height="35dp"
           android:layout_marginTop="10dp"
           android:orientation="horizontal" >
 
@@ -95,8 +93,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="59dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -118,17 +115,24 @@
             android:textSize="@dimen/buttonTextSize" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="196dp"
+        android:orientation="horizontal" >
+        
     <ListView
         android:id="@+id/lvNExSelectParticipants"
         android:layout_width="wrap_content"
-        android:layout_height="196dp"
+        android:layout_height="171dp"
         android:layout_marginLeft="5dip" >
 
     </ListView>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="105dp"
+        android:orientation="horizontal" >
 
         <ImageView
             android:id="@+id/imageView1"
