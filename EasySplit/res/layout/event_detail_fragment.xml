@@ -8,8 +8,8 @@
         android:id="@+id/llEDDateCreated"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_marginTop="25dip"
+        android:layout_weight="2.41"
         android:orientation="horizontal" >
 
         <TextView
@@ -33,7 +33,7 @@
         android:id="@+id/llEDHostName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2.92"
         android:orientation="horizontal" >
 
         <TextView
@@ -57,7 +57,7 @@
         android:id="@+id/llEDBudget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="3.13"
         android:orientation="horizontal" >
 
         <TextView
@@ -105,9 +105,9 @@
     <ListView
         android:id="@+id/lvEDPartDetails"
         android:layout_width="wrap_content"
-        android:layout_height="260dp"
-        android:layout_marginLeft="30dip"
-        android:layout_weight="4" >
+        android:layout_height="204dp"
+        android:layout_marginLeft="30dip" >
+
     </ListView>
 
 </LinearLayout>
