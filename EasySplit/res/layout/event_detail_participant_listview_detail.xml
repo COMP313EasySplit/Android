@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/llEPLVD1">
+
+    <TextView
+        android:id="@+id/txtEPLVDFullname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FullName" 
+        android:width="150dip"/>
+
+    <TextView
+        android:id="@+id/txtEPLVDEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email" 
+        android:width="150dip"/>
+
+ 
+
+</LinearLayout>
