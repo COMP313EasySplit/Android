@@ -61,6 +61,24 @@ public class EventDetailsFragment extends Fragment{
 	            startActivity(intent);
 	        }
 	    });
+	    
+	    // display Name, Date, Budget
+		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
+		ArrayList<EventModel> eventList = esGlobal.getEventList();
+	    for ( EventModel event : eventList)
+	    {
+	    	if (eventId == event.EventId)
+	    	{
+	    		TextView txtEDDisplayHostName = (TextView) view.findViewById(R.id.txtEDDisplayHostName);
+	    		txtEDDisplayHostName.setText(event.Name);
+	    		TextView txtEDDisplayDateCreated = (TextView) view.findViewById(R.id.txtEDDisplayDateCreated);
+	    		//txtEDDisplayDateCreated.setText(event.DateCreated);
+	    		TextView txtEDDisplayBudget = (TextView) view.findViewById(R.id.txtEDDisplayBudget);
+	    		txtEDDisplayBudget.setText(Double.toString(event.Budget));
+	    		break;
+	    	}
+	    }
+	    
 
 		loadParticipants = new LoadParticipants();
 		loadParticipants.execute(eventId);
@@ -95,10 +113,12 @@ public class EventDetailsFragment extends Fragment{
 	        protected void onPostExecute(String result) {
 	        	
 	        	ArrayList<ParticipantModel> participantList = Parse.getEventParticipantsList(result);
-	        	
+	        	// save to global variable, for re-use
+	    		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
+	    		esGlobal.setParticipantList(participantList);
 	        	//Log.v("Type 1"," Number of Events found: " + eventList.size());
-	        	
-	        	for (ParticipantModel participant : participantList)
+
+	    		for (ParticipantModel participant : participantList)
 	        	{
 	        		HashMap<String, String> map = new HashMap<String, String>();
 	        		map.put("UserId", Integer.toString(participant.Userid));
@@ -106,7 +126,8 @@ public class EventDetailsFragment extends Fragment{
 	                map.put("txtEPLVDEmail", participant.Email);
 	                plist.add(map);
 	        	}
-	        	
+	    		
+	    		// bind to list view
 	            ListAdapter adapter = new SimpleAdapter(getActivity().getApplicationContext(),
 	            		plist,
 	            		R.layout.event_detail_participant_listview_detail,

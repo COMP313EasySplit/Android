@@ -83,7 +83,8 @@ public class EventHostTabFragment extends Fragment {
         protected void onPostExecute(String result) {
         	
         	ArrayList<EventModel> eventList = Parse.getEventList(result);
-        	
+    		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
+    		esGlobal.setEventList(eventList);        	
         	//Log.v("Type 1"," Number of Events found: " + eventList.size());
         	
         	for (EventModel event : eventList)

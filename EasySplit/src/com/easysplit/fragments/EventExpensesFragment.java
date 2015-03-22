@@ -82,10 +82,13 @@ public class EventExpensesFragment extends Fragment{
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-        	
+        	// parse JSON object
         	ArrayList<ExpenseModel> expenseList = Parse.getEventExpensesList(result);
-        	
-        	
+        	// save to global variable, for re-use
+    		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
+    		esGlobal.setExpenseList(expenseList);
+    		
+        	// generate adapter for list view
         	for (ExpenseModel expense : expenseList)
         	{
         		HashMap<String, String> map = new HashMap<String, String>();
@@ -95,7 +98,8 @@ public class EventExpensesFragment extends Fragment{
                 map.put("txtEELVDamount", Double.toString( expense.Amount) );
                 exlist.add(map);
         	}
-        	
+    		
+    		// bind to listview
             ListAdapter adapter = new SimpleAdapter(getActivity().getApplicationContext(),
             		exlist,
             		R.layout.eventexpense_listview_details,
@@ -104,7 +108,7 @@ public class EventExpensesFragment extends Fragment{
             ListView eventExpenseList = (ListView) fragment_v.findViewById(R.id.lvEEFDisplayExpenses);
             eventExpenseList.setAdapter(adapter);
             
-            
+            // click to show expense sharing detail
             eventExpenseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view,
