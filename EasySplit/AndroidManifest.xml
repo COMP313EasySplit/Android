@@ -88,7 +88,7 @@
             >
         </activity>
         <activity
-            android:name=".SettleParticipants"
+            android:name="com.easysplit.mainview.SettleParticipants"
             android:label="@string/title_activity_settle_participants" 
             android:windowSoftInputMode="adjustPan"
             >
