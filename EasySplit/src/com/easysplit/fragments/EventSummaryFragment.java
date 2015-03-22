@@ -35,7 +35,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 public class EventSummaryFragment extends Fragment {
 
 	private Spinner partSpinner;
-	private ArrayList<HashMap<String, String>> plist;
+	//private ArrayList<HashMap<String, String>> plist;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class EventSummaryFragment extends Fragment {
 	    }		
 		
 		partSpinner = (Spinner) view.findViewById(R.id.spESFName);
-		plist = new ArrayList<HashMap<String, String>>();
+		//plist = new ArrayList<HashMap<String, String>>();
 		ArrayList<ParticipantModel> participantList = esGlobal.getParticipantList();
     	//Log.v("Type 1"," Number of Events found: " + eventList.size());
 		final HashMap<String, Integer> spinnerMap = new HashMap<String,Integer>();

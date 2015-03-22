@@ -1,7 +1,11 @@
 package com.easysplit.mainview;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 
+import com.easysplit.base.EasySplitGlobal;
+import com.easysplit.base.ParticipantModel;
 import com.example.easysplit.R;
 
 import android.app.Activity;
@@ -16,15 +20,38 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class NewExpense extends Activity {
 
+	private Spinner spNExPayer;
+	private HashMap<String, Integer> spinnerMap;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_expense);
+		
+		// bind participants to spinner
+		final EasySplitGlobal esGlobal = (EasySplitGlobal) getApplicationContext();
+		ArrayList<ParticipantModel> participantList = esGlobal.getParticipantList();
+		spinnerMap = new HashMap<String,Integer>();
+		String[] spinnerArray = new String[participantList.size()];
+		for (int i=0; i<participantList.size(); i++)
+    	{
+			spinnerMap.put(participantList.get(i).Firstname + " " + participantList.get(i).Lastname + " " + participantList.get(i).Email, participantList.get(i).Userid);
+			spinnerArray[i] = participantList.get(i).Firstname + " " + participantList.get(i).Lastname + " " + participantList.get(i).Email;
+    	}
+
+		ArrayAdapter<String> adapter =new ArrayAdapter<String>(getApplication(),android.R.layout.simple_spinner_item, spinnerArray);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+
+		spNExPayer = (Spinner) findViewById(R.id.spNExPayer);
+		spNExPayer.setAdapter(adapter);		
+		
+		
 	}
 
 	@Override
@@ -44,6 +71,13 @@ public class NewExpense extends Activity {
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+	}
+	
+	private void btnNExSplitSave(View v)
+	{
+		
+    	String name = spNExPayer.getSelectedItem().toString();
+    	int payerrId = spinnerMap.get(name);
 	}
 	
 	private static final int TAKE_PICTURE = 1;    
