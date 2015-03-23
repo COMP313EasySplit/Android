@@ -56,7 +56,7 @@ public class EventDetailsFragment extends Fragment{
 	    btnSettle.setOnClickListener(new View.OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
-	            Intent intent = new Intent(getActivity(), com.easysplit.mainview.SettleParticipants.class);
+	            Intent intent = new Intent(getActivity(), SettleParticipants.class);
 	            startActivity(intent);
 	        }
 	    });
