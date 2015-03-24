@@ -95,7 +95,7 @@ public class EventExpensesFragment extends Fragment{
         		map.put("ExpenseId", Integer.toString(expense.ExpenseID));
                 map.put("txtEELVDEventName", expense.Name);
                 map.put("txtEELVDStatus", expense.Place);
-                map.put("txtEELVDamount", Double.toString( expense.Amount) );
+                map.put("txtEELVDamount", "$" + Double.toString(expense.Amount) );
                 exlist.add(map);
         	}
     		
