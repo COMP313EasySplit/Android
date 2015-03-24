@@ -93,7 +93,7 @@ public class EventHostTabFragment extends Fragment {
         		map.put("EventId", Integer.toString(event.EventId));
                 map.put("txtELVDEventName", event.Name);
                 map.put("txtELVDStatus", event.Status);
-                map.put("txtELVDAmount", Double.toString( event.Budget) );
+                map.put("txtELVDAmount", "$" + Double.toString( event.Budget) );
                 elist.add(map);
         	}
         	

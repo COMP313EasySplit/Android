@@ -83,7 +83,7 @@ public class ParticipantTabFragment extends Fragment {
 	        		map.put("EventId", Integer.toString(event.EventId));
 	                map.put("txtPLVDEventName", event.Name);
 	                map.put("txtPLVDStatus", event.Status);
-	                map.put("txtPLVDamount", Double.toString( event.Budget) );
+	                map.put("txtPLVDamount", "$" + Double.toString( event.Budget) );
 	                elist.add(map);
 	        	}
 	        	
