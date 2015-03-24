@@ -45,8 +45,8 @@ public class NewExpense extends Activity {
 			spinnerArray[i] = participantList.get(i).Firstname + " " + participantList.get(i).Lastname + " " + participantList.get(i).Email;
     	}
 
-		ArrayAdapter<String> adapter =new ArrayAdapter<String>(getApplication(),android.R.layout.simple_spinner_item, spinnerArray);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+		ArrayAdapter<String> adapter =new ArrayAdapter<String>(getApplication(),R.layout.spinner_item, spinnerArray);
+		adapter.setDropDownViewResource(R.layout.spinner_item);
 
 		spNExPayer = (Spinner) findViewById(R.id.spNExPayer);
 		spNExPayer.setAdapter(adapter);		
