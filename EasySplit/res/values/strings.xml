@@ -37,6 +37,7 @@
     <string name="participants">Participants: </string>
     <string name="hostName">Host Name: </string>
     <string name="settleParticipants">Settle Participants</string>
+    <string name="totalAmount">Total Expense: $</string>
 
     <!-- ListView Strings -->
     <string name="eventNameLV">Event Name</string>
