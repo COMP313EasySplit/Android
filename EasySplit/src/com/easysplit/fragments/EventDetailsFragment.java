@@ -71,9 +71,11 @@ public class EventDetailsFragment extends Fragment{
 	    		TextView txtEDDisplayHostName = (TextView) view.findViewById(R.id.txtEDDisplayHostName);
 	    		txtEDDisplayHostName.setText(event.Name);
 	    		TextView txtEDDisplayDateCreated = (TextView) view.findViewById(R.id.txtEDDisplayDateCreated);
-	    		//txtEDDisplayDateCreated.setText(event.DateCreated);
+	    		txtEDDisplayDateCreated.setText(event.DateCreated);
 	    		TextView txtEDDisplayBudget = (TextView) view.findViewById(R.id.txtEDDisplayBudget);
 	    		txtEDDisplayBudget.setText(Double.toString(event.Budget));
+	    		TextView txtEDDisplayTotal = (TextView) view.findViewById(R.id.txtEDDisplayTotal);
+	    		txtEDDisplayTotal.setText(Double.toString(event.TotalSpend));
 	    		break;
 	    	}
 	    }

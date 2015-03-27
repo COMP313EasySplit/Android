@@ -9,7 +9,8 @@ public class EventModel {
 	//public UserModel EvehHost;
 	public double Budget;
 	public String Status;
-	//public Date DateCreated;
+	public String DateCreated;
+	public double TotalSpend;
 	//public ExpenseModel[] Expenses;
 	//public UserModel[] Participants;
     
