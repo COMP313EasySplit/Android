@@ -5,10 +5,19 @@ import java.util.Date;
 public class ExpenseModel {
 
 	public double Amount;
-	//public Date  DateCreated;
+	public String  DateCreated;
 	public int ExpenseID;
 	public String Name;
 	public String Place;
-	//public UserModel OriginalPayer;
+	public ExpensePayerModel OriginalPayer;
 	//public ExpenseShareModel[] SharedBy;
+	
+	public class ExpensePayerModel
+	{
+		public String Email;
+		public String Firstname;
+		public String Lastname;
+		public int UserId;
+	}
 }
+

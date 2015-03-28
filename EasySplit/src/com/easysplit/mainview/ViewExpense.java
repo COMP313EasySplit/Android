@@ -1,6 +1,12 @@
 package com.easysplit.mainview;
 
+import java.util.ArrayList;
+
+import com.easysplit.base.EasySplitGlobal;
+import com.easysplit.base.EventModel;
+import com.easysplit.base.ExpenseModel;
 import com.example.easysplit.R;
+import com.example.easysplit.R.id;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class ViewExpense extends Activity {
 
@@ -17,8 +24,27 @@ public class ViewExpense extends Activity {
 		setContentView(R.layout.view_expense);
 		
 		Intent intent = getIntent();
-		String expenseId = intent.getStringExtra("expenseId");
-		Log.v("Type 1", "Loading expense id = " + expenseId);	
+		int expenseId = Integer.parseInt(intent.getStringExtra("expenseId"));
+		Log.v("Type 1", "Loading expense id = " + expenseId);
+
+		final EasySplitGlobal esGlobal = (EasySplitGlobal) getApplicationContext();
+		ArrayList<ExpenseModel> expenseList = esGlobal.getExpenseList();
+	    for ( ExpenseModel expense : expenseList)
+	    {
+		if (expense.ExpenseID == expenseId)
+		{
+		TextView txtVExDisplayDateCreated = (TextView) this.findViewById(R.id.txtVExDisplayDateCreated);
+		txtVExDisplayDateCreated.setText(expense.DateCreated);
+		TextView txtVExDisplayAmount = (TextView) findViewById(R.id.txtVExDisplayAmount);
+		txtVExDisplayAmount.setText(Double.toString(expense.Amount));
+		TextView txtVExDisplayPlace = (TextView) findViewById(R.id.txtVExDisplayPlace);
+		txtVExDisplayPlace.setText(expense.Place);
+		
+		TextView txtVExDisplayPayer = (TextView) findViewById(R.id.txtVExDisplayPayer);
+		txtVExDisplayPayer.setText(expense.OriginalPayer.Firstname + " " + expense.OriginalPayer.Lastname);
+		
+		}
+	    }
 	}
 
 	@Override
