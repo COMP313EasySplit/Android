@@ -80,6 +80,11 @@ public class MainActivity extends Activity {
 			//processLogout();
 			Intent logoutIntentMA = new Intent(MainActivity.this, UserLogin.class);
 			startActivity(logoutIntentMA);
+			return true;			
+		case R.id.action_refresh:
+			if(getFragmentRefreshListener()!=null){
+                getFragmentRefreshListener().onRefresh();
+            }
 			return true;
 			
 //testing purposes - delete after
@@ -139,5 +144,19 @@ public class MainActivity extends Activity {
 		public void onTabReselected(Tab tab, FragmentTransaction ft) {
 		}
 	}
+	
+	public FragmentRefreshListener getFragmentRefreshListener() {
+        return fragmentRefreshListener;
+    }
+
+    public void setFragmentRefreshListener(FragmentRefreshListener fragmentRefreshListener) {
+        this.fragmentRefreshListener = fragmentRefreshListener;
+    }
+
+    private FragmentRefreshListener fragmentRefreshListener;
+
+    public interface FragmentRefreshListener{
+        void onRefresh();
+    }
 
 }
