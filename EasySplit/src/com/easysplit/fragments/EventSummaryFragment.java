@@ -58,6 +58,8 @@ public class EventSummaryFragment extends Fragment {
 	    		txtESFDate.setText(event.DateCreated);
 	    		TextView txtESFBudgetAmount = (TextView) view.findViewById(R.id.txtESFBudgetAmount);
 	    		txtESFBudgetAmount.setText(Double.toString(event.Budget));
+	    		TextView txtESFTotalAmount = (TextView) view.findViewById(R.id.txtESFTotalAmount);
+	    		txtESFTotalAmount.setText(Double.toString(event.TotalSpend));
 	    		break;
 	    	}
 	    }		

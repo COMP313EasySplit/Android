@@ -35,7 +35,7 @@
     <!-- View Event Details Strings -->
     <string name="dateCreated">Date Created: </string>
     <string name="participants">Participants: </string>
-    <string name="hostName">Host Name: </string>
+    <string name="hostName">Event Name: </string>
     <string name="settleParticipants">Settle Participants</string>
     <string name="totalAmount">Total Expense: $</string>
 

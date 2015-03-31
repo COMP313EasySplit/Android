@@ -3,6 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/txtVExName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="Expense Name : "
+            android:layout_gravity="center"
+            android:textSize="@dimen/formSize" />
+        <TextView
+            android:id="@+id/txtVExDisplayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="null"
+            android:layout_gravity="center"
+            android:textSize="@dimen/formSize" />
+    </LinearLayout>
     
     <LinearLayout
         android:layout_width="match_parent"

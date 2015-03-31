@@ -10,7 +10,7 @@ public class ExpenseModel {
 	public String Name;
 	public String Place;
 	public ExpensePayerModel OriginalPayer;
-	//public ExpenseShareModel[] SharedBy;
+	public int[] UserId;
 	
 	public class ExpensePayerModel
 	{

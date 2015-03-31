@@ -31,19 +31,21 @@ public class ViewExpense extends Activity {
 		ArrayList<ExpenseModel> expenseList = esGlobal.getExpenseList();
 	    for ( ExpenseModel expense : expenseList)
 	    {
-		if (expense.ExpenseID == expenseId)
-		{
-		TextView txtVExDisplayDateCreated = (TextView) this.findViewById(R.id.txtVExDisplayDateCreated);
-		txtVExDisplayDateCreated.setText(expense.DateCreated);
-		TextView txtVExDisplayAmount = (TextView) findViewById(R.id.txtVExDisplayAmount);
-		txtVExDisplayAmount.setText(Double.toString(expense.Amount));
-		TextView txtVExDisplayPlace = (TextView) findViewById(R.id.txtVExDisplayPlace);
-		txtVExDisplayPlace.setText(expense.Place);
-		
-		TextView txtVExDisplayPayer = (TextView) findViewById(R.id.txtVExDisplayPayer);
-		txtVExDisplayPayer.setText(expense.OriginalPayer.Firstname + " " + expense.OriginalPayer.Lastname);
-		
-		}
+			if (expense.ExpenseID == expenseId)
+			{
+				TextView txtVExDisplayName = (TextView) findViewById(R.id.txtVExDisplayName);
+				txtVExDisplayName.setText(expense.Name);
+				
+				TextView txtVExDisplayDateCreated = (TextView) findViewById(R.id.txtVExDisplayDateCreated);
+				txtVExDisplayDateCreated.setText(expense.DateCreated);
+				TextView txtVExDisplayAmount = (TextView) findViewById(R.id.txtVExDisplayAmount);
+				txtVExDisplayAmount.setText(Double.toString(expense.Amount));
+				TextView txtVExDisplayPlace = (TextView) findViewById(R.id.txtVExDisplayPlace);
+				txtVExDisplayPlace.setText(expense.Place);
+				
+				TextView txtVExDisplayPayer = (TextView) findViewById(R.id.txtVExDisplayPayer);
+				txtVExDisplayPayer.setText(expense.OriginalPayer.Firstname + " " + expense.OriginalPayer.Lastname);
+			}
 	    }
 	}
 

@@ -4,14 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
-
 import org.apache.http.HttpException;
-
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.ParticipantModel;
 import com.easysplit.net.EasySplitRequest;
 import com.example.easysplit.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
@@ -104,13 +101,10 @@ public class NewEvent extends Activity {
 						dialog.cancel();
 					    }
 					  });
- 
 				// create alert dialog
 				AlertDialog alertDialog = alertDialogBuilder.create();
- 
 				// show it
-				alertDialog.show();				
-				
+				alertDialog.show();					
 			}
 		});
 	}
