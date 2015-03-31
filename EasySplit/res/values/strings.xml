@@ -27,7 +27,7 @@
     <string name="eventString">Enter an event name</string>
     <string name="budget">Budget: $</string>
     <string name="addPart">Add Participants: </string>
-    <string name="findPart">Find Participants</string>
+    <string name="findPart">Add Participants</string>
     <string name="notify">Notify?</string>
     <string name="enterName">Enter name</string>
     <string name="enterEmail">Enter email</string>
