@@ -22,7 +22,7 @@ public class ViewExpense extends Activity {
 
 	ArrayList<ExpenseShareModel> expenseParticipantList;
 	ListView lvVExSelectParticipants;
-	
+	int expenseId;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ public class ViewExpense extends Activity {
 		expenseParticipantList = new ArrayList<ExpenseShareModel>();
 		
 		Intent intent = getIntent();
-		int expenseId = Integer.parseInt(intent.getStringExtra("expenseId"));
+		expenseId = Integer.parseInt(intent.getStringExtra("expenseId"));
 		Log.v("Type 1", "Loading expense id = " + expenseId);
 
 		final EasySplitGlobal esGlobal = (EasySplitGlobal) getApplicationContext();
@@ -114,6 +114,7 @@ public class ViewExpense extends Activity {
 		switch (item.getItemId()) {
 		case R.id.action_edit_expense:
 			Intent editExIntentVE = new Intent(ViewExpense.this, EditExpense.class);
+			editExIntentVE.putExtra("expenseId",Integer.toString(expenseId));
 			startActivity(editExIntentVE);
 			return true;
 		case R.id.action_delete_expense:
