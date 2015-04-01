@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llEPLVD1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:id="@+id/llEPLVD1">
+    android:orientation="horizontal" >
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="56dp"
         android:orientation="vertical" >
 
         <TextView
@@ -21,23 +21,23 @@
 
         <TextView
             android:id="@+id/txtEPLVDEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="217dp"
+            android:layout_height="match_parent"
             android:text="email"
             android:textColor="#000000"
             android:textSize="@dimen/formSize"
             android:width="150dip" />
-
     </LinearLayout>
 
-     <TextView
+    <TextView
         android:id="@+id/txtEPLVDAmount"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
+        android:layout_weight="0.25"
         android:gravity="right"
-        android:text="amount" 
+        android:text="amount"
         android:textColor="#000000"
         android:textSize="@dimen/formSize"
-        android:width="100dip"/>
+        android:width="100dip" />
 
 </LinearLayout>
