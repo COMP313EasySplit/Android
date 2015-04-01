@@ -1,27 +1,35 @@
 package com.easysplit.mainview;
 
 import java.util.ArrayList;
-
+import java.util.HashMap;
 import com.easysplit.base.EasySplitGlobal;
-import com.easysplit.base.EventModel;
 import com.easysplit.base.ExpenseModel;
+import com.easysplit.base.ExpenseShareModel;
+import com.easysplit.base.ParticipantModel;
 import com.example.easysplit.R;
-import com.example.easysplit.R.id;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class ViewExpense extends Activity {
 
+	ArrayList<ExpenseShareModel> expenseParticipantList;
+	ListView lvVExSelectParticipants;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_expense);
+		
+		lvVExSelectParticipants = (ListView) findViewById(R.id.lvVExSelectParticipants);
+		expenseParticipantList = new ArrayList<ExpenseShareModel>();
 		
 		Intent intent = getIntent();
 		int expenseId = Integer.parseInt(intent.getStringExtra("expenseId"));
@@ -29,6 +37,8 @@ public class ViewExpense extends Activity {
 
 		final EasySplitGlobal esGlobal = (EasySplitGlobal) getApplicationContext();
 		ArrayList<ExpenseModel> expenseList = esGlobal.getExpenseList();
+		ArrayList<ParticipantModel> participantList = esGlobal.getParticipantList();
+		
 	    for ( ExpenseModel expense : expenseList)
 	    {
 			if (expense.ExpenseID == expenseId)
@@ -45,8 +55,51 @@ public class ViewExpense extends Activity {
 				
 				TextView txtVExDisplayPayer = (TextView) findViewById(R.id.txtVExDisplayPayer);
 				txtVExDisplayPayer.setText(expense.OriginalPayer.Firstname + " " + expense.OriginalPayer.Lastname);
+				
+				for (int userID : expense.UserId)
+				{
+					for (ParticipantModel participant : participantList)
+					{
+						if (participant.Userid == userID)
+						{
+							ExpenseShareModel expenseParticipant = new ExpenseShareModel();
+							expenseParticipant.ExpenseID = expenseId;
+							expenseParticipant.Firstname = participant.Firstname;
+							expenseParticipant.Lastname = participant.Lastname;
+							expenseParticipant.Email = participant.Email;
+							expenseParticipant.UserId = userID;
+							expenseParticipant.SharedAmount = 0.0;	//  to add 
+							
+							expenseParticipantList.add(expenseParticipant);	// add participant to list
+						}
+					}
+				}
+				refreshParticipantListView();
 			}
 	    }
+	}
+	
+	private void refreshParticipantListView()
+	{
+		ArrayList<HashMap<String, String>> plist = new ArrayList<HashMap<String, String>>();
+		for (ExpenseShareModel expenseParticipant : expenseParticipantList)
+    	{
+    		HashMap<String, String> map = new HashMap<String, String>();
+    		map.put("ExpenseID", Integer.toString(expenseParticipant.ExpenseID));
+    		map.put("UserId", Integer.toString(expenseParticipant.UserId));
+            map.put("txtEPLVDFullname", expenseParticipant.Firstname + " " + expenseParticipant.Lastname);
+            map.put("txtEPLVDEmail", expenseParticipant.Email);
+            map.put("txtEPLVDAmount", Double.toString(expenseParticipant.SharedAmount));
+            plist.add(map);
+    	}
+		
+		// bind to list view
+        ListAdapter adapter = new SimpleAdapter(getApplicationContext(),
+        		plist,
+        		R.layout.event_expense_detail_participant_listview_detail,
+        		new String[]{"txtEPLVDFullname","txtEPLVDEmail","txtEPLVDAmount"},
+        		new int[]{R.id.txtEPLVDFullname, R.id.txtEPLVDEmail,R.id.txtEPLVDAmount});
+        lvVExSelectParticipants.setAdapter(adapter);
 	}
 
 	@Override

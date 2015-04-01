@@ -8,8 +8,7 @@
     <LinearLayout android:id="@+id/llNEListview"
        android:orientation="vertical"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:paddingLeft="2dip">
+       android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/etNELVAddName"

@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginTop="5dp"
-        android:orientation="horizontal" >
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/txtVExParticipants"
@@ -143,14 +143,15 @@
             android:layout_marginLeft="25dip"
             android:text="@string/participants"            
             android:textSize="@dimen/formSize" />
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/lvVExSelectParticipants"
-        android:layout_width="wrap_content"
-        android:layout_height="196dp"
-        android:layout_marginLeft="30dip" >
+	    <ListView
+	        android:id="@+id/lvVExSelectParticipants"
+	        android:layout_width="wrap_content"
+	        android:layout_height="196dp"
+	        android:layout_marginLeft="30dip" >
 
     </ListView>
+        </LinearLayout>
+
+
 
 </LinearLayout>
