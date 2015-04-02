@@ -46,7 +46,7 @@ public class EventHostTabFragment extends Fragment {
 	private ArrayList<HashMap<String, String>> elist;
 	//private SimpleAdapter adapter; 
 	private SimpleAdapter adapter;
-	public static ListView hostEventList;
+	private ListView hostEventList;
 	private ArrayList<EventModel> eventList;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -106,7 +106,7 @@ public class EventHostTabFragment extends Fragment {
     		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
     		esGlobal.setEventList(eventList);        	
         	//Log.v("Type 1"," Number of Events found: " + eventList.size());
-    		
+    		elist.clear();
     		for (EventModel event : eventList)
         	{
         		HashMap<String, String> map = new HashMap<String, String>();
@@ -125,7 +125,7 @@ public class EventHostTabFragment extends Fragment {
             		new int[]{R.id.txtELVDEventName, R.id.txtELVDStatus, R.id.txtELVDAmount});
             hostEventList = (ListView) fragment_v.findViewById(R.id.hostEventList);
             hostEventList.setAdapter(adapter);
-        	
+        	adapter.notifyDataSetChanged();
             hostEventList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view,
@@ -145,23 +145,9 @@ public class EventHostTabFragment extends Fragment {
     
     private void updateData() {
     	
-    	for (EventModel event : eventList)
-    	{
-    		HashMap<String, String> map = new HashMap<String, String>();
-    		map.put("EventId", Integer.toString(event.EventId));
-            map.put("txtELVDEventName", event.Name);
-            map.put("txtELVDStatus", event.Status);
-            map.put("txtELVDAmount", "$" + Double.toString( event.Budget) );
-            elist.add(map);
-    	}
-    	
-    	adapter = new SimpleAdapter(getActivity().getApplicationContext(),
-        		elist,
-        		R.layout.eventhost_listview_details,
-        		new String[]{"txtELVDEventName","txtELVDStatus","txtELVDAmount"},
-        		new int[]{R.id.txtELVDEventName, R.id.txtELVDStatus, R.id.txtELVDAmount});
-        hostEventList.setAdapter(adapter);        
-        
+    	loadHostEvent = new LoadHostEvent();
+		loadHostEvent.execute();
+		
     }
 
 }
