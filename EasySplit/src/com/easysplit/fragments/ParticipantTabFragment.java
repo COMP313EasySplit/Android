@@ -4,12 +4,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
+
 import org.apache.http.HttpException;
+
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.EventModel;
+import com.easysplit.base.UserModel;
 import com.easysplit.net.EasySplitRequest;
 import com.easysplit.net.Parse;
 import com.example.easysplit.R;
+
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -54,10 +58,10 @@ public class ParticipantTabFragment extends Fragment {
 				EasySplitRequest request = new EasySplitRequest(thiscontext);
 
 	    		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
-	        	int hostID = esGlobal.getHostID();			
+	        	UserModel user = esGlobal.getCurrentUser();			
 				
 				try {
-					result = request.getParticipantEvent(hostID);	// retrieve event list by host id, json string of eventModel is returned
+					result = request.getParticipantEvent(user.UserId);	// retrieve event list by host id, json string of eventModel is returned
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (HttpException e) {

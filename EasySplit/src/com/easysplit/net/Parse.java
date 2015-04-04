@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 import com.easysplit.base.*;
@@ -54,5 +55,13 @@ public class Parse {
 		
 	}
 	
-	
+	public static UserModel getLoginUser(String str) throws JsonSyntaxException
+	{
+		Gson gson = new Gson();
+		JsonParser parser = new JsonParser();
+		JsonElement obj = parser.parse(str).getAsJsonObject();
+		UserModel user = gson.fromJson(obj, UserModel.class);
+		
+		return user;
+	}
 }

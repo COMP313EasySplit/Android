@@ -110,4 +110,18 @@ public class EasySplitRequest {
 		Log.v("Type 1", "post addEvent url:" + url);
 		return baseRequest.postRequestByHttpClient(strParams, url);
 	}
+	public String login(String email, String passcode) throws IOException, TimeoutException
+	{
+		//  http://localhost:12479/EasySplitService.svc/login/{email}/{passcode}
+		String url = "";
+		ArrayList<NameValuePair> strParams = new ArrayList<NameValuePair>();
+		if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(passcode) )
+		{
+			url = getUrl("login") + "/" + email + "/" + passcode;
+			url = url.replace(" ","%20");
+		}
+		else {return null;}
+		Log.v("","");
+		return baseRequest.postRequestByHttpClient(strParams, url);
+	}
 }

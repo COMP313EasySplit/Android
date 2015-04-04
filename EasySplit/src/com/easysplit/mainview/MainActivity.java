@@ -33,8 +33,8 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		// set global variable // for testing initializing
-		final EasySplitGlobal esGlobal = (EasySplitGlobal) this.getApplicationContext();
-		esGlobal.setHostID(1);
+		//final EasySplitGlobal esGlobal = (EasySplitGlobal) this.getApplicationContext();
+		//esGlobal.setHostID(1);	for test only
 
 		// Action bar tab code
 		ActionBar bar = getActionBar();

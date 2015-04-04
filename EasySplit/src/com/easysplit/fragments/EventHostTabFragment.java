@@ -33,6 +33,7 @@ import android.widget.Toast;
 
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.EventModel;
+import com.easysplit.base.UserModel;
 import com.easysplit.fragments.EventHostTabFragment;
 import com.easysplit.mainview.MainActivity;
 import com.easysplit.mainview.NewEvent;
@@ -83,10 +84,10 @@ public class EventHostTabFragment extends Fragment {
 			EasySplitRequest request = new EasySplitRequest(thiscontext);
 
     		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
-        	int hostID = esGlobal.getHostID();			
+        	UserModel user = esGlobal.getCurrentUser();			
 			
 			try {
-				result = request.getHostEvent(hostID);	// retrieve event list by host id, json string of eventModel is returned
+				result = request.getHostEvent(user.UserId);	// retrieve event list by host id, json string of eventModel is returned
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (HttpException e) {

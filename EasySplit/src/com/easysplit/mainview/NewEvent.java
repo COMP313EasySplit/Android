@@ -4,11 +4,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
+
 import org.apache.http.HttpException;
+
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.ParticipantModel;
+import com.easysplit.base.UserModel;
 import com.easysplit.net.EasySplitRequest;
 import com.example.easysplit.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
@@ -36,6 +40,7 @@ public class NewEvent extends Activity {
 	final Application application = this.getApplication();
 	ArrayList<ParticipantModel> participantList;
 	ListView participantListView;
+	UserModel user;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +52,22 @@ public class NewEvent extends Activity {
     	participantList = new ArrayList<ParticipantModel>();
     	((EasySplitGlobal) getApplication()).setParticipantList(participantList);
 		
+    	user = ((EasySplitGlobal) getApplication()).getCurrentUser();
+    	ParticipantModel newParticipant = new ParticipantModel();
+    	newParticipant.Firstname = user.FirstName;
+    	newParticipant.Lastname = user.LastName;
+    	newParticipant.Email = user.Email;
+    	newParticipant.Userid = user.UserId;
+
+    	participantList.add(newParticipant);
+
+    	
     	participantListView = (ListView) findViewById(R.id.lvNEparticipants);
     	
 		Button btnNESave = (Button) findViewById(R.id.btnNESave);
 		btnNESave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	/*
-            	if(!isConnected()){
-            		Toast.makeText(getApplicationContext(), "You are NOT conncted",  Toast.LENGTH_SHORT).show();
-                }
-            	*/
+
            	
             	addEvent.execute();	// call add event request to connect to web service
             }
@@ -173,10 +184,10 @@ public class NewEvent extends Activity {
         	double budget = Double.parseDouble( etNEBudget.getText().toString() );
         	
     		final EasySplitGlobal esGlobal = (EasySplitGlobal) getApplicationContext();	// get login user id
-        	int hostID = esGlobal.getHostID();
+        	UserModel user  = esGlobal.getCurrentUser();
 			
 			try {
-				result = request.addEvent(name,budget,hostID);	// call web service
+				result = request.addEvent(name,budget,user.UserId);	// call web service
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (HttpException e) {

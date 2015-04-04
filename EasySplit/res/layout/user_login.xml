@@ -52,7 +52,8 @@
             android:layout_marginLeft="5dp"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:textSize="@dimen/formSize" >
+            android:textSize="@dimen/formSize" 
+            android:text="divneet91@yahoo.com" >
 
             <requestFocus />
         </EditText>
@@ -79,7 +80,8 @@
               android:layout_width="184dp"
               android:layout_height="wrap_content"
               android:layout_marginLeft="5dip"
-              android:inputType="textPassword" >
+              android:inputType="textPassword"
+              android:text="divneet" >
                <requestFocus />        
        </EditText>
       </LinearLayout>

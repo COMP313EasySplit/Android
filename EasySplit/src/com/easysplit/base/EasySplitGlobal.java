@@ -13,15 +13,16 @@ public class EasySplitGlobal extends Application{
     // get global variable
 	// String s = ((EasySplitGlobal) this.getApplication()).getHostID();
 	
-	private int hostID;
-    public int getHostID() {
-        return hostID;
-    }
-
-    public void setHostID(int HostID) {
-        this.hostID = HostID;
-    }
-	    
+	private UserModel currentUser;
+	public UserModel getCurrentUser()
+	{
+		return currentUser;
+	}
+	public void setCurrentUser(UserModel user)
+	{
+		this.currentUser = user;
+	}
+	
 	// participant arraylist of one event
     private ArrayList<ParticipantModel> participantList;
 	public ArrayList<ParticipantModel> getParticipantList()
@@ -71,4 +72,15 @@ public class EasySplitGlobal extends Application{
 	{
 		this.participantEventList = eList;
 	}
+
+	/***
+	private int hostID;
+    public int getHostID() {
+        return hostID;
+    }
+
+    public void setHostID(int HostID) {
+        this.hostID = HostID;
+    }
+   ***/
 }
