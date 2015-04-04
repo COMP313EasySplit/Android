@@ -86,7 +86,7 @@ public class EventHostTabFragment extends Fragment {
         	int hostID = esGlobal.getHostID();			
 			
 			try {
-				result = request.getEvent(hostID);	// retrieve event list by host id, json string of eventModel is returned
+				result = request.getHostEvent(hostID);	// retrieve event list by host id, json string of eventModel is returned
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (HttpException e) {
@@ -135,6 +135,7 @@ public class EventHostTabFragment extends Fragment {
                    
                    Intent viewEventIntent = new Intent(getActivity().getApplicationContext(), com.easysplit.mainview.ViewEvent.class);
                    viewEventIntent.putExtra("eventId", Integer.toString(eventId)); //Optional parameters
+                   viewEventIntent.putExtra("source", "host");
                    startActivity(viewEventIntent);
                    
                 }

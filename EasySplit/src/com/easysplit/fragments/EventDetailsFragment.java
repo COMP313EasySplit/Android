@@ -37,6 +37,7 @@ public class EventDetailsFragment extends Fragment{
 	private View fragment_v;
 	private ArrayList<HashMap<String, String>> plist;
 	private int eventId;
+	private String source;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -49,8 +50,9 @@ public class EventDetailsFragment extends Fragment{
 		
 		Log.v("Type 1","Creating Event Details Fragment");
 
-		this.eventId = Integer.parseInt(getArguments().getString("eventId"));  
-		Log.v("Type 1", "Loading event: " + eventId);		
+		this.eventId = Integer.parseInt(getArguments().getString("eventId"));
+		this.source = getArguments().getString("source");	// host or participant
+		Log.v("Type 1", "Loading event: " + eventId + " Source: " + source); 		
 		
 	    Button btnSettle = (Button) view.findViewById(R.id.btnEDSettleParticipants);
 	    btnSettle.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +65,7 @@ public class EventDetailsFragment extends Fragment{
 	    
 	    // display Name, Date, Budget
 		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
-		ArrayList<EventModel> eventList = esGlobal.getEventList();
+		ArrayList<EventModel> eventList = esGlobal.getEventList(source);
 	    for ( EventModel event : eventList)
 	    {
 	    	if (eventId == event.EventId)

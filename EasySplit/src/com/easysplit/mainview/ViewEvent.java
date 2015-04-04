@@ -50,10 +50,12 @@ public class ViewEvent extends Activity {
 				
 				Intent intent = getIntent();
 				String eventId = intent.getStringExtra("eventId");
+				String source = intent.getStringExtra("source");
 				Log.v("Type 1", "Creating View Event Activity");				
 				
 				Bundle eventBundle = new Bundle();
 				eventBundle.putString("eventId", eventId);
+				eventBundle.putString("source", source); // host or participant
 				fragmentTab1.setArguments(eventBundle);
 				fragmentTab2.setArguments(eventBundle);
 				fragmentTab3.setArguments(eventBundle);

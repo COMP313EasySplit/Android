@@ -46,12 +46,29 @@ public class EasySplitGlobal extends Application{
 	
 	// event arraylist of one host
 	private ArrayList<EventModel> eventList;
-	public ArrayList<EventModel> getEventList()
+	public ArrayList<EventModel> getEventList(String source)
 	{
+		if (source.equals("host"))
+		{
 		return eventList;
+		}
+		else	// participant
+		{
+			return participantEventList;
+		}
 	}
 	public void setEventList(ArrayList<EventModel> eList)
 	{
 		this.eventList = eList;
 	}	    
+	// event arraylist of one participant
+	private ArrayList<EventModel> participantEventList;
+	//public ArrayList<EventModel> getParticipantEventList()
+	//{
+	//	return participantEventList;
+	//}
+	public void setParticipantEventList(ArrayList<EventModel> eList)
+	{
+		this.participantEventList = eList;
+	}
 }

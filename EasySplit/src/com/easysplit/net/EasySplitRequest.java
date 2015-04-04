@@ -32,13 +32,28 @@ public class EasySplitRequest {
 		return sb.toString();
 	}
 	
-	public String getEvent(int hostID) throws HttpException, IOException, TimeoutException
+	public String getHostEvent(int hostID) throws HttpException, IOException, TimeoutException
 	{	//http://54.191.15.241/EasySplitService/EasySplitService.svc/showHostEvents/1
 		ArrayList<NameValuePair> strParams = new ArrayList<NameValuePair>();
 		String url ="";
 		if ( hostID != 0) {
 			//strParams.add(new BasicNameValuePair("hostid", Integer.toString(hostID)));
 			url = getUrl("showHostEvents") + "/" + hostID;
+			url = url.replaceAll(" ","%20");
+		}else{
+			return null;
+		}
+		Log.v("Type 1", "post getEvent url:" + url);
+		return baseRequest.postRequestByHttpClient(strParams, url);
+	}
+
+	public String getParticipantEvent(int hostID) throws HttpException, IOException, TimeoutException
+	{	//http://54.191.15.241/EasySplitService/EasySplitService.svc/showParticipantEvents/1
+		ArrayList<NameValuePair> strParams = new ArrayList<NameValuePair>();
+		String url ="";
+		if ( hostID != 0) {
+			//strParams.add(new BasicNameValuePair("hostid", Integer.toString(hostID)));
+			url = getUrl("showParticipantEvents") + "/" + hostID;
 			url = url.replaceAll(" ","%20");
 		}else{
 			return null;

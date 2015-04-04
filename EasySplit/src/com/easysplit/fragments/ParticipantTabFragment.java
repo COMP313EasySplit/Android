@@ -57,7 +57,7 @@ public class ParticipantTabFragment extends Fragment {
 	        	int hostID = esGlobal.getHostID();			
 				
 				try {
-					result = request.getEvent(hostID);	// retrieve event list by host id, json string of eventModel is returned
+					result = request.getParticipantEvent(hostID);	// retrieve event list by host id, json string of eventModel is returned
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (HttpException e) {
@@ -74,7 +74,8 @@ public class ParticipantTabFragment extends Fragment {
 	        protected void onPostExecute(String result) {
 	        	
 	        	ArrayList<EventModel> eventList = Parse.getEventList(result);
-	        	
+	    		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
+	    		esGlobal.setParticipantEventList(eventList); 
 	        	//Log.v("Type 1"," Number of Events found: " + eventList.size());
 	        	
 	        	for (EventModel event : eventList)
@@ -105,6 +106,7 @@ public class ParticipantTabFragment extends Fragment {
 	                   
 	                   Intent viewEventIntent = new Intent(getActivity().getApplicationContext(), com.easysplit.mainview.ViewEvent.class);
 	                   viewEventIntent.putExtra("eventId", Integer.toString(eventId)); //Optional parameters
+	                   viewEventIntent.putExtra("source", "participant");
 	                   startActivity(viewEventIntent);
 	                   
 	                }

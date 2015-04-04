@@ -36,6 +36,8 @@ public class EventSummaryFragment extends Fragment {
 
 	private Spinner partSpinner;
 	//private ArrayList<HashMap<String, String>> plist;
+	private int eventId;
+	private String source;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -43,11 +45,12 @@ public class EventSummaryFragment extends Fragment {
 				container, false);
 		Log.v("Type 1","Creating Event Summary Fragment");
 		
-		int eventId = Integer.parseInt(getArguments().getString("eventId"));  
-		Log.v("Type 1", "Loading event summary: " + eventId);
+		eventId = Integer.parseInt(getArguments().getString("eventId"));
+		source = getArguments().getString("source");
+		Log.v("Type 1", "Loading event summary: " + eventId + " Source: " + source);
 		
 		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
-		ArrayList<EventModel> eventList = esGlobal.getEventList();
+		ArrayList<EventModel> eventList = esGlobal.getEventList(source);
 	    for ( EventModel event : eventList)
 	    {
 	    	if (eventId == event.EventId)
