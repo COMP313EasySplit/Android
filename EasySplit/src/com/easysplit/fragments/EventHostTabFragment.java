@@ -145,7 +145,7 @@ public class EventHostTabFragment extends Fragment {
     }
     
     
-    private void updateData() {
+    public void updateData() {
     	
     	loadHostEvent = new LoadHostEvent();
 		loadHostEvent.execute();

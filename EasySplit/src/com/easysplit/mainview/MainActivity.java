@@ -50,6 +50,12 @@ public class MainActivity extends Activity {
 		actionBar.addTab(tab2);
 	}
 
+	
+	  //@Override
+	  //public void onResume() {
+	  // ((EventHostTabFragment)fragmentTab1).updateData();
+	  //}
+	  
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
