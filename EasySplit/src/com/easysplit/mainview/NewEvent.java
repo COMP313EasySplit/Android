@@ -23,6 +23,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,13 +42,15 @@ public class NewEvent extends Activity {
 	ArrayList<ParticipantModel> participantList;
 	ListView participantListView;
 	UserModel user;
+	EditText etNEName;
+	EditText etNEBudget;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_event);
 		
-		addEvent = new AddEvent();
+		addEvent = new AddEvent(NewEvent.this);
     	
     	participantList = new ArrayList<ParticipantModel>();
     	((EasySplitGlobal) getApplication()).setParticipantList(participantList);
@@ -60,16 +63,24 @@ public class NewEvent extends Activity {
     	newParticipant.Userid = user.UserId;
 
     	participantList.add(newParticipant);
-
+    	etNEName = (EditText) findViewById(R.id.etNEEventName);	// get name
+    	etNEBudget = (EditText) findViewById(R.id.etNEBudget);		// get budge
     	
     	participantListView = (ListView) findViewById(R.id.lvNEparticipants);
+    	refreshParticipantListView();
     	
 		Button btnNESave = (Button) findViewById(R.id.btnNESave);
 		btnNESave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-           	
-            	addEvent.execute();	// call add event request to connect to web service
+            	
+            	if (!TextUtils.isEmpty(etNEName.getText().toString().trim()))
+            	{
+            		addEvent.execute();	// call add event request to connect to web service
+            	}
+            	else
+            	{
+            		Toast.makeText(getApplicationContext(), "Event name cannot be empty.", Toast.LENGTH_SHORT).show();
+            	}
             }
         });
 		
@@ -97,12 +108,17 @@ public class NewEvent extends Activity {
 					  new DialogInterface.OnClickListener() {
 					    public void onClick(DialogInterface dialog,int id) {
 						// get user input and set it to list
-					    	ParticipantModel newParticipant = new ParticipantModel();
-					    	newParticipant.Firstname = firstName.getText().toString();
-					    	newParticipant.Lastname = lastName.getText().toString();
-					    	newParticipant.Email = email.getText().toString();
-
-					    	participantList.add(newParticipant);
+					    	if ( !TextUtils.isEmpty(firstName.getText().toString().trim())
+					    		&& !TextUtils.isEmpty(lastName.getText().toString().trim())
+					    		&& !TextUtils.isEmpty(email.getText().toString().trim()) )
+					    		{
+							    	ParticipantModel newParticipant = new ParticipantModel();
+							    	newParticipant.Firstname = firstName.getText().toString();
+							    	newParticipant.Lastname = lastName.getText().toString();
+							    	newParticipant.Email = email.getText().toString();
+		
+							    	participantList.add(newParticipant);
+					    		}
 					    	refreshParticipantListView();
 					    }
 					  })
@@ -172,22 +188,38 @@ public class NewEvent extends Activity {
 
     private AddEvent addEvent;
     private class AddEvent extends AsyncTask<String, Void, String> {
+    	private Activity mActivity;
+    	public AddEvent(Activity activity) {
+    		mActivity = activity;
+    	} 
+    	
         @Override
 		protected String doInBackground(String... params) {
 			String result = null;
 			EasySplitRequest request = new EasySplitRequest(NewEvent.this);	// create reqeust
 
-        	EditText etNEName = (EditText) findViewById(R.id.etNEEventName);	// get name
+
         	String name = etNEName.getText().toString();
-        	
-        	EditText etNEBudget = (EditText) findViewById(R.id.etNEBudget);		// get budge
         	double budget = Double.parseDouble( etNEBudget.getText().toString() );
         	
     		final EasySplitGlobal esGlobal = (EasySplitGlobal) getApplicationContext();	// get login user id
         	UserModel user  = esGlobal.getCurrentUser();
 			
 			try {
-				result = request.addEvent(name,budget,user.UserId);	// call web service
+				result = request.addEvent(name,budget,user.UserId);	// call web service add event
+				
+				int newEventID = Integer.parseInt(result);
+				if (newEventID>0)
+				{
+					for (ParticipantModel participant : participantList)
+					{	// add event participants
+						result = request.addEventParticipants(Integer.toString(newEventID),
+								participant.Firstname,
+								participant.Lastname,
+								participant.Email);
+					}
+				}
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (HttpException e) {
@@ -206,8 +238,11 @@ public class NewEvent extends Activity {
         	if (result.equals("true"))
         	{
         		Toast.makeText(getBaseContext(), "Event has been saved.", Toast.LENGTH_SHORT).show();
-
-        		finish();
+        		mActivity.finish();
+        	}
+        	else
+        	{
+        		Toast.makeText(getBaseContext(), "Error: cannot save event", Toast.LENGTH_SHORT).show();
         	}
        }
     }

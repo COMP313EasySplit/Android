@@ -80,6 +80,23 @@ public class EasySplitRequest {
 		return baseRequest.postRequestByHttpClient(strParams, url);
 	}
 	
+	public String addEventParticipants(String eventId, String firstName, String lastName, String email) throws HttpException, IOException, TimeoutException
+	{	//http://54.191.15.241/EasySplitService/EasySplitService.svc/updateEventParticipants/{eventid}/{firstname}/{lastname}/{email}
+		ArrayList<NameValuePair> strParams = new ArrayList<NameValuePair>();
+		String url = "";
+		
+		if ( !TextUtils.isEmpty(eventId) 
+				&& !TextUtils.isEmpty(firstName)
+				&& !TextUtils.isEmpty(lastName)
+				&& !TextUtils.isEmpty(email))
+		{
+			url = getUrl("updateEventParticipants") + "/" + eventId + "/" + firstName + "/" + lastName + "/" + email;
+			url = url.replace(" ", "%20");
+		}
+		Log.v("Type 1", "post updateEventParticipants url:" + url);
+		return baseRequest.postRequestByHttpClient(strParams, url);
+	}
+	
 	public String getEventExpenses(int eventId) throws IOException, TimeoutException
 	{	//http://54.191.15.241/EasySplitService/EasySplitService.svc/getExpense/{eventid}
 		ArrayList<NameValuePair> strParams = new ArrayList<NameValuePair>();
