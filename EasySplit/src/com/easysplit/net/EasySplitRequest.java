@@ -138,7 +138,7 @@ public class EasySplitRequest {
 			url = url.replace(" ","%20");
 		}
 		else {return null;}
-		Log.v("","");
+		Log.v("Type 1","post login url:" + url);
 		return baseRequest.postRequestByHttpClient(strParams, url);
 	}
 }

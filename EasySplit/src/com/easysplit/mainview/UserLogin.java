@@ -125,7 +125,7 @@ public class UserLogin extends Activity {
         @Override
         protected void onPostExecute(String result) {
         	UserModel user = Parse.getLoginUser(result);
-        	if (user != null)
+        	if (user.UserId > 0)
         	{
         		final EasySplitGlobal esGlobal = (EasySplitGlobal) getApplicationContext();
         		esGlobal.setCurrentUser(user);
