@@ -29,36 +29,4 @@
           android:showAsAction="never"
           android:title="@string/logout"/>
        
-       <!-- Testing purposes - delete all after -->
-       <item android:id="@+id/action_editExpense1"
-          android:orderInCategory="300"
-          android:showAsAction="never"
-          android:title="editexpense"/>
-       
-       <item android:id="@+id/action_newexpense1"
-          android:orderInCategory="300"
-          android:showAsAction="never"
-          android:title="newexpense"/>
-       
-       <item android:id="@+id/action_registeraccount1"
-          android:orderInCategory="300"
-          android:showAsAction="never"
-          android:title="registeraccount"/>
-       
-       <item android:id="@+id/action_login1"
-          android:orderInCategory="300"
-          android:showAsAction="never"
-          android:title="login"/>
-       
-       <item android:id="@+id/viewevent1"
-          android:orderInCategory="300"
-          android:showAsAction="never"
-          android:title="viewevent"/>
-       
-        <item android:id="@+id/viewexpense1"
-          android:orderInCategory="300"
-          android:showAsAction="never"
-          android:title="viewexpense"/>
-    
-    
 </menu>

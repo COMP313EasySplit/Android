@@ -93,39 +93,6 @@ public class MainActivity extends Activity {
             }
 			return true;
 			
-//testing purposes - delete after
-//******************************************************************************
-		case R.id.action_editExpense1:
-			//processLogout();
-			Intent intent1 = new Intent(MainActivity.this, EditExpense.class);
-			startActivity(intent1);
-			return true;
-		case R.id.action_newexpense1:
-			//processLogout();
-			Intent intent2 = new Intent(MainActivity.this, NewExpense.class);
-			startActivity(intent2);
-			return true;
-		case R.id.action_registeraccount1:
-			//processLogout();
-			Intent intent3 = new Intent(MainActivity.this, RegisterAccount.class);
-			startActivity(intent3);
-			return true;
-		case R.id.action_login1:
-			//processLogout();
-			Intent intent4 = new Intent(MainActivity.this, UserLogin.class);
-			startActivity(intent4);
-			return true;
-		case R.id.viewevent1:
-			//processLogout();
-			Intent intent5 = new Intent(MainActivity.this, ViewEvent.class);
-			startActivity(intent5);
-			return true;
-		case R.id.viewexpense1:
-			//processLogout();
-			Intent intent6 = new Intent(MainActivity.this, ViewExpense.class);
-			startActivity(intent6);
-			return true;
-//******************************************************************************
 		default:
 			return super.onOptionsItemSelected(item);
 		}
