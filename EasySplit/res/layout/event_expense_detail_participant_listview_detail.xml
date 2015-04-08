@@ -31,13 +31,13 @@
 
     <TextView
         android:id="@+id/txtEPLVDAmount"
-        android:layout_width="60dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.25"
         android:gravity="right"
         android:text="amount"
         android:textColor="#000000"
         android:textSize="@dimen/formSize"
-        android:width="100dip" />
+        android:width="110dip" />
 
 </LinearLayout>

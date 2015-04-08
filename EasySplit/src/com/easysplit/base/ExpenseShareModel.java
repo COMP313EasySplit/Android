@@ -7,4 +7,7 @@ public class ExpenseShareModel {
 	public String Lastname;
 	public String Email;	
 	public double SharedAmount;
+	public double PaidAmount;
+	public double OweAmount;
+	public Boolean isSelected;
 }
