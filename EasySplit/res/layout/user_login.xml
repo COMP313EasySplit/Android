@@ -53,7 +53,7 @@
             android:ems="10"
             android:inputType="textEmailAddress"
             android:textSize="@dimen/formSize" 
-            android:text="divneet91@yahoo.com" >
+            android:text="" >
 
             <requestFocus />
         </EditText>
@@ -81,7 +81,7 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="5dip"
               android:inputType="textPassword"
-              android:text="divneet" >
+              android:text="" >
                <requestFocus />        
        </EditText>
       </LinearLayout>
