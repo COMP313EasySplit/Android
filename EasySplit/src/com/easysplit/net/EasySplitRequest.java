@@ -175,4 +175,19 @@ public class EasySplitRequest {
 		Log.v("Type 1","post login url:" + url);
 		return baseRequest.postRequestByHttpClient(strParams, url);
 	}
+	
+	public String getSummary(int eventId) throws IOException, TimeoutException
+	{	//http://54.191.15.241/EasySplitService/EasySplitService.svc/showSummary/{eventid}
+		ArrayList<NameValuePair> strParams = new ArrayList<NameValuePair>();
+		String url ="";
+		if ( eventId != 0 ) {
+			url = getUrl("showSummary") + "/" + eventId;
+			url = url.replaceAll(" ","%20");
+		
+		}else{
+			return null;
+		}
+		Log.v("Type 1", "post addEvent url:" + url);
+		return baseRequest.postRequestByHttpClient(strParams, url);
+	}
 }

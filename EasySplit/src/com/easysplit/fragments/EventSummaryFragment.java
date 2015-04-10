@@ -1,21 +1,31 @@
 package com.easysplit.fragments;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeoutException;
+
+import org.xml.sax.Parser;
 
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.EventModel;
+import com.easysplit.base.ExpenseShareModel;
 import com.easysplit.base.ParticipantModel;
+import com.easysplit.net.EasySplitRequest;
+import com.easysplit.net.Parse;
 import com.example.easysplit.R;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.ListFragment;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,19 +40,25 @@ import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class EventSummaryFragment extends Fragment {
 
+	private Activity thisActivity;
 	private Spinner partSpinner;
 	//private ArrayList<HashMap<String, String>> plist;
 	private int eventId;
 	private String source;
+	TableLayout tableSummary;
+
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.event_summary_fragment,
 				container, false);
+		
+		thisActivity = getActivity();
 		Log.v("Type 1","Creating Event Summary Fragment");
 		
 		eventId = Integer.parseInt(getArguments().getString("eventId"));
@@ -85,19 +101,19 @@ public class EventSummaryFragment extends Fragment {
 		adapter.setDropDownViewResource(R.layout.spinner_item);
 	    partSpinner.setAdapter(adapter);
 	    
-	    partSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() 
-                {
-                    public void onItemSelected(AdapterView<?> parent, View view,int position,long id) 
-                    {
-                    	String name = partSpinner.getSelectedItem().toString();
-                    	int userId = spinnerMap.get(name);
-                    	Log.v("Type 1", "You selected user id : " + userId);
-                    }
-
-                    public void onNothingSelected(AdapterView<?> parent) {
-                    }
-                }
-            );	    
+	    //partSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() 
+        //       {
+        //            public void onItemSelected(AdapterView<?> parent, View view,int position,long id) 
+        //            {
+        //            	String name = partSpinner.getSelectedItem().toString();
+        //            	int userId = spinnerMap.get(name);
+        //            	Log.v("Type 1", "You selected user id : " + userId);
+        //            }
+        //
+        //            public void onNothingSelected(AdapterView<?> parent) {
+        //            }
+        //        }
+        //    );	    
 		
 		//ArrayList<String> list = new ArrayList<String>();
 		//ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
@@ -107,18 +123,9 @@ public class EventSummaryFragment extends Fragment {
 
 		//partSpinner.setOnItemSelectedListener(new MyListener());
 		
-		TableLayout t1 = (TableLayout) view.findViewById(R.id.table);
-		TableRow tr = new TableRow(getActivity());
-		TextView tv1 = new TextView(getActivity());
-		tv1.setText("Items");
-		tv1.setBackground(getResources().getDrawable(R.drawable.cell_shape));
-		tr.addView(tv1);
-
-		tr.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
-				LayoutParams.WRAP_CONTENT));
-
-		t1.addView(tr, new TableLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+	    tableSummary =(TableLayout) view.findViewById(R.id.table);
+	    displaySummary = new DisplaySummary(thisActivity);
+	    displaySummary.execute(eventId);
 
 		return view;
 	}
@@ -146,5 +153,63 @@ public class EventSummaryFragment extends Fragment {
 
 		}
 	}
+	
+	DisplaySummary displaySummary;
+    private class DisplaySummary extends AsyncTask<Integer, Void, ArrayList<ArrayList<String>>> {
+    	private Activity mActivity;
+    	public DisplaySummary(Activity activity) {
+    		mActivity = activity;
+    	} 
+		@Override
+		protected ArrayList<ArrayList<String>> doInBackground(Integer... params) {
+			ArrayList<ArrayList<String>> result = null;
+			try {
+				EasySplitRequest request = new EasySplitRequest(mActivity.getApplication());
+				result = Parse.getSummary(request.getSummary(params[0]));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (TimeoutException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return result;
+		}
+        @Override
+        protected void onPostExecute(ArrayList<ArrayList<String>> result) {
+        	if (result.size()>0)
+        	{
+        		
+    		  for(int i=0; i<result.size(); i++) {
+    			     TableRow tablerow = new TableRow(mActivity);
+    			     tablerow.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT));
+    			     //set row
+    			     ArrayList<String> row = result.get(i);
+    			     for(int j=0; j<row.size(); j++) {
+    			         TextView actualData = new TextView(mActivity);
+    			         //set properties
+    			         actualData.setBackground(getResources().getDrawable(R.drawable.cell_shape));
+    			         actualData.setText(row.get(j));
+    			         if (j>0) 
+    			        	 {
+    			        	 	actualData.setGravity(Gravity.RIGHT);
+    			        	 	actualData.setMinimumWidth(100);
+        			         }
+    			         tablerow.addView(actualData);
+    			     }
+    			     tableSummary.addView(tablerow,new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+    			  }
+        		  
+        		//Toast.makeText(mActivity.getBaseContext(), result.size(), Toast.LENGTH_SHORT).show();
+        		
+        	}
+        	else
+        	{
+        		Toast.makeText(mActivity.getBaseContext(), "Error.", Toast.LENGTH_SHORT).show();
+        	}
+        }
+    	
+    }
 
 }
