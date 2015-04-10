@@ -1,20 +1,25 @@
 package com.easysplit.mainview;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.TimeoutException;
 
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.ExpenseShareModel;
 import com.easysplit.base.ParticipantModel;
 import com.easysplit.base.UserModel;
+import com.easysplit.net.EasySplitRequest;
 import com.example.easysplit.R;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -24,6 +29,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -37,13 +43,16 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class NewExpense extends Activity {
-
+	
+	private Context thiscontext;
 	private Spinner spNExPayer;
 	private HashMap<String, Integer> spinnerMap;
 	ArrayList<ParticipantModel> participantList;
 	ArrayList<ExpenseShareModel> participantExpenseShareList;
 	UserModel currentUser;
 	
+	String eventId;	
+	EditText etNExEventName;
 	EditText etNExAmount;
 	EditText etNExPlace;
 	ListView lvNExSelectParticipants;
@@ -53,6 +62,11 @@ public class NewExpense extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_expense);
 		
+		thiscontext = getApplicationContext();
+		
+		eventId = getIntent().getStringExtra("eventId"); 
+		
+		etNExEventName = (EditText) findViewById(R.id.etNExEventName);
 		etNExAmount = (EditText) findViewById(R.id.etNExAmount);
 		etNExPlace = (EditText) findViewById(R.id.etNExPlace);
 		lvNExSelectParticipants = (ListView) findViewById(R.id.lvNExSelectParticipants);
@@ -124,7 +138,6 @@ public class NewExpense extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				//parent.getItemAtPosition(pos)
 		    	String name = spNExPayer.getSelectedItem().toString();
 		    	int payerId = spinnerMap.get(name);
 		    	//Toast.makeText(getApplicationContext(), "user id selected : " + Integer.toString(payerId), Toast.LENGTH_SHORT ).show();
@@ -145,6 +158,18 @@ public class NewExpense extends Activity {
 				// TODO Auto-generated method stub
 			}
 		});
+		etNExAmount.setOnFocusChangeListener(new OnFocusChangeListener()
+		{
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (!hasFocus)
+				{
+					refreshParticipantListView();
+				}
+			}
+			
+		});
+		
 	}
 	ArrayList<HashMap<String, String>> plist;
 	private void refreshParticipantListView()
@@ -234,12 +259,15 @@ public class NewExpense extends Activity {
 			return super.onOptionsItemSelected(item);
 		}
 	}
-	
-	private void btnNExSplitSave(View v)
+	private AddExpenseParticipants addExpenseParticipant;
+	public void btnNExSplitSave(View v)
 	{
-		
     	String name = spNExPayer.getSelectedItem().toString();
     	int payerrId = spinnerMap.get(name);
+    	//addExpenseParticipant = new AddExpenseParticipants();
+    	//addExpenseParticipant.execute();
+    	addExpense = new AddExpense(NewExpense.this);
+    	addExpense.execute();
 	}
 	
 	private static final int TAKE_PICTURE = 1;    
@@ -278,5 +306,81 @@ public class NewExpense extends Activity {
 	            }
 	        }
 	    }
-	}	
+	}
+	
+	AddExpense addExpense;
+	private class AddExpense extends AsyncTask<Integer, Void, Integer>{
+    	private Activity mActivity;
+    	public AddExpense(Activity activity) {
+    		mActivity = activity;
+    	} 
+		@Override
+		protected Integer doInBackground(Integer... params) {
+			// TODO Auto-generated method stub
+			String result = null;
+			EasySplitRequest request = new EasySplitRequest(thiscontext);
+	    	String name = spNExPayer.getSelectedItem().toString();
+	    	int payerId = spinnerMap.get(name);
+			
+			try {
+				result = request.addExpense(Integer.parseInt(eventId), etNExEventName.getText().toString(), 
+						Double.parseDouble(etNExAmount.getText().toString()), etNExPlace.getText().toString(), 
+						payerId);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (TimeoutException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return Integer.parseInt(result);    
+		}
+        @Override
+        protected void onPostExecute(Integer expenseId) {
+        	Log.v("Type 1","add expense result:" + expenseId);
+        	if(expenseId > 0)
+        	{
+        		addExpenseParticipants = new AddExpenseParticipants(mActivity);
+        		addExpenseParticipants.execute(expenseId);
+        	}
+        }		
+	}
+	AddExpenseParticipants addExpenseParticipants;
+    private class AddExpenseParticipants extends AsyncTask<Integer, Void, String> {
+    	private Activity mActivity;
+    	public AddExpenseParticipants(Activity activity) {
+    		mActivity = activity;
+    	} 
+		@Override
+		protected String doInBackground(Integer... params) {
+			String result = null;
+			EasySplitRequest request = new EasySplitRequest(thiscontext);
+        	try {
+	            for(ExpenseShareModel share : participantExpenseShareList)
+	            {
+						result = request.addExpenseParticipants(params[0], share.UserId, share.OweAmount);
+	            }
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (TimeoutException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return result;
+		}
+        @Override
+        protected void onPostExecute(String result) {
+        	if (result.equals("true"))
+        	{
+        		Toast.makeText(getBaseContext(), "Event has been saved.", Toast.LENGTH_SHORT).show();
+        		mActivity.finish();
+        	}
+        	else
+        	{
+        		Toast.makeText(getBaseContext(), "Error: cannot save event", Toast.LENGTH_SHORT).show();
+        	}
+        }
+    	
+    }
 }

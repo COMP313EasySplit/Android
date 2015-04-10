@@ -26,6 +26,8 @@ public class ViewEvent extends Activity {
 		Fragment fragmentTab1 = new EventDetailsFragment();
 		Fragment fragmentTab2 = new EventExpensesFragment();
 		Fragment fragmentTab3 = new EventSummaryFragment();
+		String eventId;
+		String source;
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +51,8 @@ public class ViewEvent extends Activity {
 				actionBar.addTab(tab3);
 				
 				Intent intent = getIntent();
-				String eventId = intent.getStringExtra("eventId");
-				String source = intent.getStringExtra("source");
+				eventId = intent.getStringExtra("eventId");
+				source = intent.getStringExtra("source");
 				Log.v("Type 1", "Creating View Event Activity");				
 				
 				Bundle eventBundle = new Bundle();
@@ -77,6 +79,7 @@ public class ViewEvent extends Activity {
 			return true;
 		case R.id.action_addNewExpense:
 			Intent newExIntentVE = new Intent(ViewEvent.this, NewExpense.class);
+			newExIntentVE.putExtra("eventId", eventId);
 			startActivity(newExIntentVE);
 			return true;
 		case R.id.action_accountInfo:

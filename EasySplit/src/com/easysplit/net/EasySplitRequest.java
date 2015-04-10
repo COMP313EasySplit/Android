@@ -93,7 +93,41 @@ public class EasySplitRequest {
 			url = getUrl("updateEventParticipants") + "/" + eventId + "/" + firstName + "/" + lastName + "/" + email;
 			url = url.replace(" ", "%20");
 		}
+		else
+			return null;
 		Log.v("Type 1", "post updateEventParticipants url:" + url);
+		return baseRequest.postRequestByHttpClient(strParams, url);
+	}
+	public String addExpense(int eventId, String name, double amount,String place, int payerId ) throws IOException, TimeoutException
+	{	//http://54.191.15.241/EasySplitService/EasySplitService.svc/addExpense/{eventid}/{name}/{amount}/{place}/{originalpayer}
+		ArrayList<NameValuePair> strParams = new ArrayList<NameValuePair>();
+		String url = "";
+		
+		if(eventId!=0 && payerId!=0 && amount!=0
+				&& !TextUtils.isEmpty(name)
+				&& !TextUtils.isEmpty(place))
+		{
+			url = getUrl("addExpense") + "/" + eventId + "/" + name + "/" + amount + "/" + place + "/" + payerId;
+			url = url.replace(" ", "%20");
+		}
+		else
+			return null;
+		Log.v("Type 1", "post addExpense url:" + url);
+		return baseRequest.postRequestByHttpClient(strParams, url);
+	}
+	public String addExpenseParticipants(int expenseId, int userId, double amount ) throws IOException, TimeoutException
+	{	//http://54.191.15.241/EasySplitService/EasySplitService.svc/updateExpenseParticipants/{expenseid}/{userid}/{amount}
+		ArrayList<NameValuePair> strParams = new ArrayList<NameValuePair>();
+		String url = "";
+		
+		if(expenseId!=0 && userId!=0 )
+		{
+			url = getUrl("updateExpenseParticipants") + "/" + expenseId + "/" + userId + "/" + amount;
+			url = url.replace(" ", "%20");
+		}
+		else
+			return null;
+		Log.v("Type 1", "post updateExpenseParticipants url:" + url);
 		return baseRequest.postRequestByHttpClient(strParams, url);
 	}
 	
