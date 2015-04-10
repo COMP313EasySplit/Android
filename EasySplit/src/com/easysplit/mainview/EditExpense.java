@@ -58,19 +58,19 @@ public class EditExpense extends Activity {
 				TextView txtVExDisplayPayer = (TextView) findViewById(R.id.txtEExDisplayPayer);
 				txtVExDisplayPayer.setText(expense.OriginalPayer.Firstname + " " + expense.OriginalPayer.Lastname);
 				
-				for (int userID : expense.UserId)
+				for (ExpenseModel.Share share : expense.Shares)
 				{
 					for (ParticipantModel participant : participantList)
 					{
-						if (participant.Userid == userID)
+						if (participant.Userid == share.UserId)
 						{
 							ExpenseShareModel expenseParticipant = new ExpenseShareModel();
 							expenseParticipant.ExpenseID = expenseId;
 							expenseParticipant.Firstname = participant.Firstname;
 							expenseParticipant.Lastname = participant.Lastname;
 							expenseParticipant.Email = participant.Email;
-							expenseParticipant.UserId = userID;
-							expenseParticipant.SharedAmount = 0.0;	//  to add 
+							expenseParticipant.UserId = share.UserId;
+							expenseParticipant.SharedAmount = share.Amount;	//  to add 
 							
 							expenseParticipantList.add(expenseParticipant);	// add participant to list
 						}

@@ -147,15 +147,6 @@
             android:layout_marginTop="20dp"
             android:text="@string/participants"            
             android:textSize="@dimen/formSize" />
-
-        <Button
-            android:id="@+id/btnEExselectPart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dip"
-            android:layout_marginTop="20dp"
-            android:text="@string/selectPart"
-            android:textSize="@dimen/buttonTextSize" />
     </LinearLayout>
 
     <LinearLayout

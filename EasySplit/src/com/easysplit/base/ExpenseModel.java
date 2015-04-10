@@ -10,7 +10,7 @@ public class ExpenseModel {
 	public String Name;
 	public String Place;
 	public ExpensePayerModel OriginalPayer;
-	public int[] UserId;
+	public Share[] Shares;
 	
 	public class ExpensePayerModel
 	{
@@ -18,6 +18,11 @@ public class ExpenseModel {
 		public String Firstname;
 		public String Lastname;
 		public int UserId;
+	}
+	public class Share
+	{
+        public int UserId;
+        public double Amount;
 	}
 }
 

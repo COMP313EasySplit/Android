@@ -120,9 +120,10 @@
             android:id="@+id/btnEDSettleParticipants"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             android:layout_marginLeft="35dip"
-             android:textSize="@dimen/formSize"
-            android:text="@string/settleParticipants" />
+            android:layout_marginLeft="35dip"
+            android:text="@string/settleParticipants"
+            android:textSize="@dimen/formSize"
+            android:visibility="gone" />
 
     </LinearLayout>
 
