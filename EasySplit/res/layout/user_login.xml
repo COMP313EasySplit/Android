@@ -89,22 +89,20 @@
       <LinearLayout
           android:layout_width="200dp"
           android:layout_height="wrap_content"
-          android:layout_gravity="center"
           android:layout_marginTop="100dp"
           android:layout_weight="0.80"
-          android:orientation="horizontal" >
+          android:orientation="horizontal"    
+          android:layout_gravity="center"     
+          >
 
           <Button
               android:id="@+id/btnULLogin"
               android:layout_width="100dp"
               android:layout_height="40dp"
+              android:layout_marginLeft="50dp"
               android:text="@string/title_activity_user_login" />
 
-           <Button
-        android:id="@+id/btnULRegister"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:text="@string/RARegister" />
+ 
 
 </LinearLayout>
 </LinearLayout>
