@@ -82,10 +82,10 @@ public class ViewEvent extends Activity {
 			newExIntentVE.putExtra("eventId", eventId);
 			startActivity(newExIntentVE);
 			return true;
-		case R.id.action_accountInfo:
+		/*case R.id.action_accountInfo:
 			Intent accountInfoIntentVE = new Intent(ViewEvent.this, AccountInfo.class);
 			startActivity(accountInfoIntentVE);
-			return true;
+			return true;*/
 		case R.id.action_logout:
 			//processLogout(); need to deactivate user credentials
 			Intent logoutIntentVE = new Intent(ViewEvent.this, UserLogin.class);

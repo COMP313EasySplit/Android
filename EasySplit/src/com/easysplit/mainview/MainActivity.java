@@ -78,10 +78,10 @@ public class MainActivity extends Activity {
 			Intent newEventIntentMA = new Intent(MainActivity.this, NewEvent.class);
 			startActivity(newEventIntentMA);
 			return true;
-		case R.id.action_accountInfo:
+		/*case R.id.action_accountInfo:
 			Intent accountInfoIntentMA = new Intent(MainActivity.this, AccountInfo.class);
 			startActivity(accountInfoIntentMA);
-			return true;
+			return true;*/
 		case R.id.action_logout:
 			//processLogout();
 			Intent logoutIntentMA = new Intent(MainActivity.this, UserLogin.class);

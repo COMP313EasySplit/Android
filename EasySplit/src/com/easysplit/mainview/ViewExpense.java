@@ -112,11 +112,11 @@ public class ViewExpense extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.action_edit_expense:
+		/*case R.id.action_edit_expense:
 			Intent editExIntentVE = new Intent(ViewExpense.this, EditExpense.class);
 			editExIntentVE.putExtra("expenseId",Integer.toString(expenseId));
 			startActivity(editExIntentVE);
-			return true;
+			return true;*/
 		case R.id.action_delete_expense:
 			// deleteExpense();
 			return true;
@@ -124,10 +124,10 @@ public class ViewExpense extends Activity {
 			Intent homeIntentVE = new Intent(ViewExpense.this, MainActivity.class);
 			startActivity(homeIntentVE);
 			return true;
-		case R.id.action_accountInfo:
+		/*case R.id.action_accountInfo:
 			Intent accountInfoIntent = new Intent(ViewExpense.this, AccountInfo.class);
 			startActivity(accountInfoIntent);
-			return true;
+			return true;*/
 		case R.id.action_logout:
 			//processLogout(); need to deactivate user credentials
 			Intent logoutIntentVEx = new Intent(ViewExpense.this, UserLogin.class);

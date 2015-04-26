@@ -41,14 +41,4 @@
         android:textColor="#000000"
         android:textSize="@dimen/listViewSize" />
 
-    <ImageButton
-        android:id="@+id/imgbtnELVDAddNewExpense"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignLeft="@+id/txtELVDAmount"
-        android:layout_below="@+id/txtELVDAmount"
-        android:layout_marginLeft="16dp"
-        android:contentDescription="@string/addNewExp"
-        android:src="@drawable/ic_action_new_dark" />
-
 </RelativeLayout>
