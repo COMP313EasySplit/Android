@@ -54,6 +54,8 @@
     <string name="place">Place: </string>
     <string name="selectPart">Select Participants</string>
     <string name="split">Save &amp; Split</string>
+    <string name="photoPreview">Photo Preview</string>
+    <string name="takePhoto">Take Photo</string>
 
     <!-- View Expense Strings -->
     <string name="deleteExpense">Delete Expense</string>

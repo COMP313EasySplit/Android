@@ -17,6 +17,7 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -56,11 +57,16 @@ public class NewExpense extends Activity {
 	EditText etNExAmount;
 	EditText etNExPlace;
 	ListView lvNExSelectParticipants;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_expense);
+		
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
 		
 		thiscontext = getApplicationContext();
 		
@@ -225,7 +231,8 @@ public class NewExpense extends Activity {
             map.put("txtEPLVDFullname", expenseParticipant.Firstname + " " + expenseParticipant.Lastname);
             map.put("txtEPLVDEmail", expenseParticipant.Email);
             //map.put("txtEPLVDAmount", Double.toString(expenseParticipant.SharedAmount));
-            map.put("txtEPLVDAmount", String.format("Paid: %-6sShare:%-6sOwe:%-6s", 
+
+            map.put("txtEPLVDAmount", String.format("Paid: %-6sShare: %-6sOwe: %-6s", 
             		expenseParticipant.PaidAmount,
             		expenseParticipant.SharedAmount,
             		expenseParticipant.OweAmount));
@@ -254,7 +261,13 @@ public class NewExpense extends Activity {
 		case R.id.action_cancel:
 			Intent homeIntentNE = new Intent(NewExpense.this, MainActivity.class);
 			startActivity(homeIntentNE);
-			return true;		
+			return true;
+		case R.id.action_accept:
+			String name = spNExPayer.getSelectedItem().toString();
+	    	int payerrId = spinnerMap.get(name);
+	    	addExpense = new AddExpense(NewExpense.this);
+	    	addExpense.execute();
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -373,12 +386,12 @@ public class NewExpense extends Activity {
         protected void onPostExecute(String result) {
         	if (result.equals("true"))
         	{
-        		Toast.makeText(getBaseContext(), "Event has been saved.", Toast.LENGTH_SHORT).show();
+        		Toast.makeText(getBaseContext(), "Expense saved", Toast.LENGTH_SHORT).show();
         		mActivity.finish();
         	}
         	else
         	{
-        		Toast.makeText(getBaseContext(), "Error: cannot save event", Toast.LENGTH_SHORT).show();
+        		Toast.makeText(getBaseContext(), "Error: cannot save expense", Toast.LENGTH_SHORT).show();
         	}
         }
     	

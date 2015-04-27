@@ -10,6 +10,8 @@
         android:layout_height="36dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        style="@style/MyUserManual"
+        android:textStyle="normal"
         android:inputType="text" 
         android:hint="@string/enterExpense" >
         
@@ -17,7 +19,7 @@
        </EditText>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="334dp"
         android:layout_height="49dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal" >
@@ -29,20 +31,22 @@
             android:layout_marginLeft="25dip"
             android:text="@string/payer"
             android:layout_gravity="center"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+             />
 
         <Spinner
             android:id="@+id/spNExPayer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="0.75" />
     
     </LinearLayout>
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="33dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -51,14 +55,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="@string/amount"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+             />
 
         <EditText
             android:id="@+id/etNExAmount"
             android:layout_width="151dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dip"
-            android:textSize="@dimen/formSize"
+            style="@style/MyUserManual"
+            android:textStyle="normal"
             android:inputType="numberDecimal" >
             
             <requestFocus />        
@@ -77,14 +84,19 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="25dip"
               android:text="@string/place"
-              android:textSize="@dimen/formSize" />
+              style="@style/MyUserManual"
+              android:textStyle="normal" />
 
           <EditText
               android:id="@+id/etNExPlace"
               android:layout_width="184dp"
               android:layout_height="wrap_content"
               android:layout_marginLeft="5dip"
-              android:inputType="text" >
+              style="@style/MyUserManual"
+              android:textStyle="normal"
+              android:inputType="text" 
+              android:imeOptions="actionDone"
+              >
           
           <requestFocus />        
        </EditText>
@@ -92,7 +104,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
         <TextView
@@ -102,7 +114,9 @@
             android:layout_marginLeft="25dip"
             android:layout_marginTop="20dp"
             android:text="@string/participants"            
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -112,40 +126,46 @@
         
     <ListView
         android:id="@+id/lvNExSelectParticipants"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="5dip" >
+        android:layout_width="314dp"
+        android:layout_height="187dp"
+        android:layout_marginLeft="25dip" >
 
     </ListView>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="312dp"
+        android:layout_height="63dp"
+        android:layout_marginLeft="25dip"
         android:orientation="horizontal" >
 
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="77dp"
             android:layout_height="67dp"
+            android:contentDescription="@string/photoPreview"
             android:src="@drawable/ic_action_new_dark" />
 
         <Button
             android:id="@+id/btnNExPhoto"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Take Photo"  
-            android:onClick="btnNexPhoto"/>
+            android:layout_weight="0.65"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/loginbutton"
+            android:onClick="btnNexPhoto"
+            android:textStyle="normal"
+            android:text="@string/takePhoto"
+            />
 
-        <Button
+       <!-- <Button
             android:id="@+id/btnNExSplit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/split"
             android:textSize="@dimen/buttonTextSize"
-            android:onClick="btnNExSplitSave"/>
+            android:onClick="btnNExSplitSave"/>-->
 
     </LinearLayout>
 
