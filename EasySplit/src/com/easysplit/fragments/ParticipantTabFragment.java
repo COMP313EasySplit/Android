@@ -41,7 +41,7 @@ import com.easysplit.net.EasySplitRequest;
 import com.easysplit.net.Parse;
 import com.example.easysplit.R;
 
-public class EventHostTabFragment extends Fragment {
+public class ParticipantTabFragment extends Fragment {
 	private Context thiscontext;
 	private View fragment_v;
 	private ArrayList<HashMap<String, String>> elist;

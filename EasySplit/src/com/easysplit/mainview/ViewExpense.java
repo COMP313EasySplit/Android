@@ -117,9 +117,9 @@ public class ViewExpense extends Activity {
 			editExIntentVE.putExtra("expenseId",Integer.toString(expenseId));
 			startActivity(editExIntentVE);
 			return true;*/
-		case R.id.action_delete_expense:
+		//case R.id.action_delete_expense:
 			// deleteExpense();
-			return true;
+			//return true;
 		case R.id.action_home:
 			Intent homeIntentVE = new Intent(ViewExpense.this, MainActivity.class);
 			startActivity(homeIntentVE);
