@@ -41,7 +41,7 @@ public class UserLogin extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.user_login);
-		
+		getActionBar().hide();
 		Button btnULLogin = (Button) findViewById(R.id.btnULLogin);
 		btnULLogin.setOnClickListener(new View.OnClickListener() {
 			

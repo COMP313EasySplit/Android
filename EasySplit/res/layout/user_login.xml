@@ -4,10 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <TextView
+         android:id="@+id/ultxtTitleLogin"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="50dp"
+         android:text="@string/title_activity_user_login" 
+         android:textSize="50sp"
+         android:textColor="#0099cc"
+         android:layout_gravity="center"
+         style="@style/MyUserManual"
+         />
+    
      <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_weight="0.35"
         android:orientation="horizontal" >
         </LinearLayout>
@@ -15,7 +26,7 @@
      <LinearLayout
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:layout_marginTop="100dp"
+         android:layout_marginTop="30dp"
          android:layout_weight="0.21"
          android:orientation="horizontal" >
      
@@ -24,36 +35,29 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_weight="0.35"
-         android:layout_marginLeft="25dip"
+         android:layout_marginLeft="10dip"
          android:text="@string/logintext" 
-         android:textSize="@dimen/formSize"
+         android:textStyle="normal"
+         style="@style/MyUserManual"
          />
 </LinearLayout>
     
-    <LinearLayout
+   <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:layout_weight="0.35"
         android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/txtULEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dip"
-            android:text="@string/RAEmail"
-            android:textSize="@dimen/formSize" />
-
         <EditText
             android:id="@+id/etULEmail"
-            android:layout_width="220dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:textSize="@dimen/formSize" 
-            android:text="" >
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+            android:hint="Email Address" >
 
             <requestFocus />
         </EditText>
@@ -63,33 +67,24 @@
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="10dp"
           android:layout_weight="0.35"
           android:orientation="horizontal" >
 
-          <TextView
-              android:id="@+id/txtULPassword"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginLeft="25dip"
-              android:text="@string/RAPassword"
-              android:textSize="@dimen/formSize" />
-
           <EditText
               android:id="@+id/etULPassword"
-              android:layout_width="184dp"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_marginLeft="5dip"
               android:inputType="textPassword"
-              android:text="" >
+              style="@style/MyUserManual"
+              android:textStyle="normal"
+              android:hint="Password" >
                <requestFocus />        
        </EditText>
       </LinearLayout>
 
       <LinearLayout
-          android:layout_width="200dp"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="100dp"
           android:layout_weight="0.80"
           android:orientation="horizontal"    
           android:layout_gravity="center"     
@@ -97,9 +92,10 @@
 
           <Button
               android:id="@+id/btnULLogin"
-              android:layout_width="100dp"
-              android:layout_height="40dp"
-              android:layout_marginLeft="50dp"
+              android:layout_width="match_parent"
+              android:layout_height="50dp"
+              style="@style/MyUserManual"
+              android:background="@drawable/loginbutton"
               android:text="@string/title_activity_user_login" />
 
  
