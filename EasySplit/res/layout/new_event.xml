@@ -15,7 +15,9 @@
         android:layout_columnSpan="2"
         android:layout_gravity="center"
         android:layout_row="0"
-	android:inputType="text"
+	    android:inputType="text"
+	    style="@style/MyUserManual"
+        android:textStyle="normal"
         android:hint="@string/eventString" />
 
     <View
@@ -32,8 +34,10 @@
         android:layout_column="0"
         android:layout_marginLeft="25dip"
         android:layout_row="2"
+        style="@style/MyUserManual"
+        android:textStyle="normal"
         android:text="@string/budget"
-        android:textSize="@dimen/formSize" />
+         />
 
     <EditText
         android:id="@+id/etNEBudget"
@@ -43,7 +47,11 @@
         android:layout_columnSpan="2"
         android:layout_marginLeft="5dip"
         android:layout_row="2"
-        android:inputType="numberDecimal" />
+        style="@style/MyUserManual"
+        android:textStyle="normal"
+        android:inputType="numberDecimal" 
+        android:imeOptions="actionDone"
+        />
 
     <TextView
         android:id="@+id/txtNEParticipants"
@@ -54,11 +62,12 @@
         android:layout_marginLeft="25dip"
         android:layout_row="3"
         android:text="@string/addPart"
-        android:textSize="@dimen/formSize" />
+        style="@style/MyUserManual"
+        android:textStyle="normal" />
     
     <Button
         android:id="@+id/btnNESearch"
-        android:layout_width="156dp"
+        android:layout_width="140dp"
         android:layout_height="36dp"
         android:layout_column="1"
         android:layout_marginLeft="25dip"
@@ -66,7 +75,10 @@
         android:layout_row="3"
         android:layout_columnSpan="2"
         android:text="@string/findPart"
-        android:textSize="@dimen/buttonTextSize" />
+        style="@style/MyUserManual"
+        android:textStyle="normal" 
+        android:textSize="@dimen/buttonTextSize"
+        />
     
      <View
         android:id="@+id/viewNE2"
@@ -77,22 +89,12 @@
     
      <ListView
          android:id="@+id/lvNEparticipants"
-         android:layout_width="wrap_content"
-         android:layout_height="222dp"
+         android:layout_width="298dp"
+         android:layout_height="271dp"
          android:layout_column="0"
          android:layout_columnSpan="2"
-         android:layout_marginLeft="5dip"
+         android:layout_marginLeft="25dip"
          android:layout_row="5" >
         </ListView>
         
-
-      <Button
-            android:id="@+id/btnNESave"
-            android:layout_width="100dp"
-            android:layout_height="35dp"
-            android:text="@string/save"
-            android:layout_gravity="right"
-            android:layout_row="6"
-            android:layout_column="1"
-            android:textSize="12sp" />
 </GridLayout>

@@ -4,21 +4,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
-
 import org.apache.http.HttpException;
-
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.ParticipantModel;
 import com.easysplit.base.UserModel;
 import com.easysplit.net.EasySplitRequest;
 import com.example.easysplit.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -50,6 +48,10 @@ public class NewEvent extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_event);
 		
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		
 		addEvent = new AddEvent(NewEvent.this);
     	
     	participantList = new ArrayList<ParticipantModel>();
@@ -68,22 +70,7 @@ public class NewEvent extends Activity {
     	
     	participantListView = (ListView) findViewById(R.id.lvNEparticipants);
     	refreshParticipantListView();
-    	
-		Button btnNESave = (Button) findViewById(R.id.btnNESave);
-		btnNESave.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	
-            	if (!TextUtils.isEmpty(etNEName.getText().toString().trim()))
-            	{
-            		addEvent.execute();	// call add event request to connect to web service
-            	}
-            	else
-            	{
-            		Toast.makeText(getApplicationContext(), "Event name cannot be empty.", Toast.LENGTH_SHORT).show();
-            	}
-            }
-        });
-		
+    			
 		Button btnNESearch = (Button) findViewById(R.id.btnNESearch);
 		btnNESearch.setOnClickListener(new OnClickListener(){
 			@Override
@@ -171,7 +158,17 @@ public class NewEvent extends Activity {
 		case R.id.action_cancel:
 			Intent homeIntentNEv = new Intent(NewEvent.this, MainActivity.class);
 			startActivity(homeIntentNEv);
-			return true;		
+			return true;
+		case R.id.action_accept:
+	            	if (!TextUtils.isEmpty(etNEName.getText().toString().trim()))
+	            	{
+	            		addEvent.execute();	// call add event request to connect to web service
+	            	}
+	            	else
+	            	{
+	            		Toast.makeText(getApplicationContext(), "Event name cannot be empty.", Toast.LENGTH_SHORT).show();
+	            	}
+			return true;	
 		default:
 			return super.onOptionsItemSelected(item);
 		}
