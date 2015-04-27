@@ -61,24 +61,41 @@ import android.widget.TextView;
 	        	Bundle args = new Bundle();
 	            args.putInt("page_position", position + 1);
 	            
-	        	if (position == 0){	        		
-	        		fragment = new UserManualFragment1();
-	        	}
-	        	else if (position == 1){
-	        		fragment = new UserManualFragment2();	        		
-	        	}
-	        	else if (position == 2){
-	        		fragment = new UserManualFragment3();	        		
-	        	}
-	        	else if (position == 3){
-	        		fragment = new UserManualFragment4();       		
-	        	}
-	        	else if (position == 4){
-	        		fragment = new UserManualFragment5();	        		
-	        	}
-	        	else {
-	        		fragment = new UserManualFragment6();	        		
-	        	}
+	            if(getResources().getBoolean(R.bool.tablet)){
+	            	if (position == 0){	        		
+		        		fragment = new UserManualFragment1();
+		        	}
+		        	else if (position == 1){
+		        		fragment = new UserManualFragment2();	        		
+		        	}
+		        	else if (position == 2){
+		        		fragment = new UserManualFragment3();	        		
+		        	}
+		        	else {
+		        		fragment = new UserManualFragment6();       		
+		        	}
+
+			    }
+	            else {
+			        	if (position == 0){	        		
+			        		fragment = new UserManualFragment1();
+			        	}
+			        	else if (position == 1){
+			        		fragment = new UserManualFragment2();	        		
+			        	}
+			        	else if (position == 2){
+			        		fragment = new UserManualFragment3();	        		
+			        	}
+			        	else if (position == 3){
+			        		fragment = new UserManualFragment4();       		
+			        	}
+			        	else if (position == 4){
+			        		fragment = new UserManualFragment5();	        		
+			        	}
+			        	else {
+			        		fragment = new UserManualFragment6();	        		
+			        	}
+	            }
 
 	            fragment.setArguments(args);
 	            return fragment;
@@ -86,7 +103,14 @@ import android.widget.TextView;
 	 
 	        @Override
 	        public int getCount() {
-	            return 6;
+	        
+	        	if(getResources().getBoolean(R.bool.tablet)){
+	        		return 4;
+	        	}
+	        	else
+	        	{
+	        		return 6;	        		
+	        	}
 	        }
 	 
 	        @Override
@@ -157,11 +181,16 @@ import android.widget.TextView;
 	        @Override
 	        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+	        	if(getResources().getBoolean(R.bool.tablet)){
+	        		return null;	        		
+	        	}
+	        	else{
 	            View rootView = inflater.inflate(R.layout.usermanual_p4, container, false);
 	            Bundle args = getArguments();
 	            //((TextView) rootView.findViewById(R.id.textView3)).setText("Page " + args.getInt("page_position"));
 	 
 	            return rootView;
+	        	}
 	        }
 	    }
 	    
@@ -169,12 +198,18 @@ import android.widget.TextView;
 	        @Override
 	        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+	        	if(getResources().getBoolean(R.bool.tablet)){
+	        		return null;	        		
+	        	}
+	        	else{
+	        	
 	            View rootView = inflater.inflate(R.layout.usermanual_p5, container, false);
 	            Bundle args = getArguments();
 	            //((TextView) rootView.findViewById(R.id.textView3)).setText("Page " + args.getInt("page_position"));
 	 
 	            return rootView;
-	        }
+	        	}
+	        	}	        
 	    }
 	    
 	    class UserManualFragment6 extends Fragment {
@@ -193,6 +228,18 @@ import android.widget.TextView;
 	                @Override
 	                public void onClick(View v) {
 	                 Intent intent = new Intent(getActivity(), UserLogin.class);
+	      	    	  startActivity(intent);
+	                }
+	            });
+	            
+	            TextView t4;
+	            t4 = ((TextView) rootView.findViewById(R.id.link));
+	           
+	            t4.setOnClickListener(new View.OnClickListener() {
+
+	                @Override
+	                public void onClick(View v) {
+	                 Intent intent = new Intent(getActivity(), RegisterAccount.class);
 	      	    	  startActivity(intent);
 	                }
 	            });
