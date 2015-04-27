@@ -18,7 +18,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="@string/dateCreated"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+			/>
 
         <TextView
             android:id="@+id/txtEDDisplayDateCreated"
@@ -26,7 +28,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dip"
             android:text="null"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -42,15 +46,19 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="@string/hostName"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+             />
 
         <TextView
             android:id="@+id/txtEDDisplayHostName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dip"
+            style="@style/MyUserManual"
+            android:textStyle="normal"
             android:text="null"
-            android:textSize="@dimen/formSize" />
+             />
     </LinearLayout>
 
     <LinearLayout
@@ -66,7 +74,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="@string/budget"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+             />
 
         <TextView
             android:id="@+id/txtEDDisplayBudget"
@@ -74,7 +84,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dip"
             android:text="null"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+           />
     </LinearLayout>
     
      <LinearLayout
@@ -90,7 +102,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="@string/totalAmount"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+            />
 
         <TextView
             android:id="@+id/txtEDDisplayTotal"
@@ -98,7 +112,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dip"
             android:text="null"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+           />
     </LinearLayout>
 
     <LinearLayout
@@ -114,7 +130,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="@string/participants"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+             />
 
         <Button
             android:id="@+id/btnEDSettleParticipants"
@@ -122,7 +140,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dip"
             android:text="@string/settleParticipants"
-            android:textSize="@dimen/formSize"
+            style="@style/MyUserManual"
+            android:textStyle="normal"
             android:visibility="gone" />
 
     </LinearLayout>
@@ -131,7 +150,10 @@
         android:id="@+id/lvEDPartDetails"
         android:layout_width="wrap_content"
         android:layout_height="204dp"
-        android:layout_marginLeft="30dip" >
+        android:layout_marginLeft="30dip" 
+        style="@style/MyUserManual"
+        android:textStyle="normal"
+        >
 
     </ListView>
 

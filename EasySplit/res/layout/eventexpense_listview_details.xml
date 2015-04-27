@@ -16,8 +16,8 @@
          android:id="@+id/txtEELVDEventName"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:textColor="#000000"
-         android:textSize="@dimen/listViewSize"
+         style="@style/MyUserManual"
+         android:textStyle="normal"
 		 android:text="@string/expenseNameLV" 
          />
         
@@ -25,8 +25,9 @@
          android:id="@+id/txtEELVDStatus"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
+         style="@style/MyUserManual"
+         android:textStyle="normal"
          android:textSize="@dimen/formSize"
-         android:textColor="#000000"
          android:text="@string/statusLV" 
          />
     </LinearLayout>
@@ -35,10 +36,10 @@
          android:id="@+id/txtEELVDamount"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:textSize="@dimen/listViewSize"
-         android:textColor="#000000"
          android:layout_alignParentRight="true"
 		 android:layout_centerVertical="true"
+		 style="@style/MyUserManual"
+         android:textStyle="normal"
          android:text="@string/amountLV" 
          />
 

@@ -15,8 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FullName"
-            android:textColor="#000000"
-            android:textSize="@dimen/formSize"
+            style="@style/MyUserManual"
+            android:textStyle="normal"
             android:width="150dip" />
 
         <TextView
@@ -24,7 +24,8 @@
             android:layout_width="217dp"
             android:layout_height="match_parent"
             android:text="email"
-            android:textColor="#000000"
+            style="@style/MyUserManual"
+            android:textStyle="normal"
             android:textSize="@dimen/formSize"
             android:width="150dip" />
     </LinearLayout>
@@ -37,7 +38,8 @@
         android:gravity="right"
         android:text="amount"
         android:textColor="#000000"
-        android:textSize="@dimen/formSize"
+        style="@style/MyUserManual"
+        android:textStyle="normal"
         android:width="110dip" />
 
 </LinearLayout>

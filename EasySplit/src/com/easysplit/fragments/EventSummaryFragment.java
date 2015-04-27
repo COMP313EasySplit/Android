@@ -3,25 +3,15 @@ package com.easysplit.fragments;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeoutException;
-
-import org.xml.sax.Parser;
-
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.EventModel;
-import com.easysplit.base.ExpenseShareModel;
 import com.easysplit.base.ParticipantModel;
 import com.easysplit.net.EasySplitRequest;
 import com.easysplit.net.Parse;
 import com.example.easysplit.R;
-
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.ListFragment;
-import android.content.Context;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,11 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -70,15 +56,15 @@ public class EventSummaryFragment extends Fragment {
 	    for ( EventModel event : eventList)
 	    {
 	    	if (eventId == event.EventId)
-	    	{
-	    		TextView txtESFEventName = (TextView) view.findViewById(R.id.txtESFEventName);
-	    		txtESFEventName.setText(event.Name);
+	    	{	    		
 	    		TextView txtESFDate = (TextView) view.findViewById(R.id.txtESFDate);
 	    		txtESFDate.setText(event.DateCreated);
 	    		TextView txtESFBudgetAmount = (TextView) view.findViewById(R.id.txtESFBudgetAmount);
 	    		txtESFBudgetAmount.setText(Double.toString(event.Budget));
 	    		TextView txtESFTotalAmount = (TextView) view.findViewById(R.id.txtESFTotalAmount);
 	    		txtESFTotalAmount.setText(Double.toString(event.TotalSpend));
+	    		TextView txtESFEventName = (TextView) view.findViewById(R.id.txtESFEventName);
+	    		txtESFEventName.setText("Summary for " + event.Name);
 	    		break;
 	    	}
 	    }		
@@ -190,7 +176,9 @@ public class EventSummaryFragment extends Fragment {
     			         TextView actualData = new TextView(mActivity);
     			         //set properties
     			         actualData.setBackground(getResources().getDrawable(R.drawable.cell_shape));
-    			         actualData.setText(row.get(j));
+    			         actualData.setText(" " + row.get(j) + " ");
+    			         actualData.setTextSize(16);
+    			         actualData.setTextColor(R.color.black);
     			         if (j>0) 
     			        	 {
     			        	 	actualData.setGravity(Gravity.RIGHT);

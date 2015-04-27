@@ -17,7 +17,8 @@
             android:layout_marginLeft="25dip"
             android:text="Expense Name : "
             android:layout_gravity="center"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal" />
         <TextView
             android:id="@+id/txtVExDisplayName"
             android:layout_width="wrap_content"
@@ -25,7 +26,8 @@
             android:layout_marginLeft="25dip"
             android:text="null"
             android:layout_gravity="center"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal" />
     </LinearLayout>
     
     <LinearLayout
@@ -42,7 +44,8 @@
             android:layout_marginLeft="25dip"
             android:text="@string/dateCreated"
             android:layout_gravity="center"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/txtVExDisplayDateCreated"
@@ -51,7 +54,8 @@
             android:layout_marginLeft="25dip"
             android:text="null"
             android:layout_gravity="center"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal" />
     
     </LinearLayout>
 
@@ -69,7 +73,8 @@
             android:layout_marginLeft="25dip"
             android:text="@string/payer"
             android:layout_gravity="center"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/txtVExDisplayPayer"
@@ -78,7 +83,8 @@
             android:layout_marginLeft="25dip"
             android:text="null"
             android:layout_gravity="center"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal" />
     
     </LinearLayout>
     
@@ -95,7 +101,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="@string/amount"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal" />
 
        <TextView
             android:id="@+id/txtVExDisplayAmount"
@@ -103,7 +110,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="null"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal" />
     </LinearLayout>
     
       <LinearLayout
@@ -119,14 +127,16 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="25dip"
               android:text="@string/place"
-              android:textSize="@dimen/formSize" />
+              style="@style/MyUserManual"
+              android:textStyle="normal" />
 		<TextView
               android:id="@+id/txtVExDisplayPlace"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginLeft="25dip"
               android:text="null"
-              android:textSize="@dimen/formSize" />
+              style="@style/MyUserManual"
+              android:textStyle="normal" />
       </LinearLayout>
 
     <LinearLayout
@@ -142,7 +152,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="@string/participants"            
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"/>
 	    <ListView
 	        android:id="@+id/lvVExSelectParticipants"
 	        android:layout_width="wrap_content"

@@ -19,16 +19,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/eventNameLV"
-            android:textColor="#000000"
-            android:textSize="@dimen/listViewSize"/>
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+			/>
 
         <TextView
             android:id="@+id/txtELVDStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/statusLV"
-            android:textColor="#000000"
-            android:textSize="@dimen/formSize" />
+            style="@style/MyUserManual"
+            android:textStyle="normal"
+	    android:textSize="@dimen/formSize"
+             />
     </LinearLayout>
 
     <TextView
@@ -38,7 +41,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="@string/amountLV"
-        android:textColor="#000000"
-        android:textSize="@dimen/listViewSize" />
+		style="@style/MyUserManual"
+        android:textStyle="normal"
+        />
 
 </RelativeLayout>
