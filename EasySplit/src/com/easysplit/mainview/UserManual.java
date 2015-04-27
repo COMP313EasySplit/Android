@@ -33,9 +33,9 @@ import android.widget.TextView;
 	        setContentView(R.layout.activity_user_manual);
 	        getActionBar().hide();
 	        
-	        if(getResources().getBoolean(R.bool.portrait_only)){
-		        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-		    }
+	        //if(getResources().getBoolean(R.bool.portrait_only)){
+		    //    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		    //}
 	        
 	        mCustomPagerAdapter = new CustomPagerAdapter(getSupportFragmentManager(), this);
 	 

@@ -64,9 +64,9 @@ public class NewExpense extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_expense);
 		
-		if(getResources().getBoolean(R.bool.portrait_only)){
-	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-	    }
+		//if(getResources().getBoolean(R.bool.portrait_only)){
+	    //    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	   // }
 		
 		thiscontext = getApplicationContext();
 		
