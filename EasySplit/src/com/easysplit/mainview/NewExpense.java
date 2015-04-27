@@ -208,7 +208,7 @@ public class NewExpense extends Activity {
 			{
 				share.PaidAmount = 0.0;
 				share.SharedAmount = share_amount;
-				share.OweAmount = 0 - share_amount;
+				share.OweAmount = share_amount - 0;
 			}
 			
 	    	String name = spNExPayer.getSelectedItem().toString();
@@ -217,7 +217,7 @@ public class NewExpense extends Activity {
 			{
 				share.PaidAmount = total_amount;
 				share.SharedAmount = host_share_amount;
-				share.OweAmount = total_amount - host_share_amount;
+				share.OweAmount = host_share_amount - total_amount ;
 			}
 		}
 		
