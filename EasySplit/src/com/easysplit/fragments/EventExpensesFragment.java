@@ -17,6 +17,7 @@ import com.example.easysplit.R;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +42,14 @@ public class EventExpensesFragment extends Fragment{
 		View view = inflater.inflate(R.layout.event_expense_fragment, container, false);
 		//TextView textview = (TextView) view.findViewById(R.id.expense_tabtext);
 		//textview.setText("tab 2");
+		
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
 		Log.v("Type 1","Creating Event Expenses Fragment");
 		
 		String eId = getArguments().getString("eventId");

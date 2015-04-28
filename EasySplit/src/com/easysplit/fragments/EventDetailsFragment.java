@@ -18,6 +18,7 @@ import com.example.easysplit.R;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,6 +45,15 @@ public class EventDetailsFragment extends Fragment{
 		View view = inflater.inflate(R.layout.event_detail_fragment, container, false);
 		//TextView textview = (TextView) view.findViewById(R.id.detail_tabtext);
 		//textview.setText("tab 1");
+		
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
+		
 		plist = new ArrayList<HashMap<String, String>>();
 		fragment_v=view;
 		thiscontext = getActivity().getApplicationContext();

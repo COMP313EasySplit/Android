@@ -63,10 +63,13 @@ public class NewExpense extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_expense);
-		
-		//if(getResources().getBoolean(R.bool.portrait_only)){
-	    //    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-	   // }
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
 		
 		thiscontext = getApplicationContext();
 		
@@ -198,7 +201,6 @@ public class NewExpense extends Activity {
 		}
 		double share_amount = Math.floor(total_amount/selected_count * 100.0) / 100.0;
 		double host_share_amount = total_amount - share_amount*(selected_count-1);
-		host_share_amount = Math.floor(host_share_amount * 100.0) / 100.0;
 		for (int i=0;i<participantExpenseShareList.size();i++)
 		{
 			ExpenseShareModel share = participantExpenseShareList.get(i);
@@ -209,7 +211,7 @@ public class NewExpense extends Activity {
 			{
 				share.PaidAmount = 0.0;
 				share.SharedAmount = share_amount;
-				share.OweAmount = share_amount - 0;
+				share.OweAmount = 0 - share_amount;
 			}
 			
 	    	String name = spNExPayer.getSelectedItem().toString();
@@ -218,7 +220,7 @@ public class NewExpense extends Activity {
 			{
 				share.PaidAmount = total_amount;
 				share.SharedAmount = host_share_amount;
-				share.OweAmount = host_share_amount - total_amount ;
+				share.OweAmount = total_amount - host_share_amount;
 			}
 		}
 		
@@ -387,12 +389,12 @@ public class NewExpense extends Activity {
         protected void onPostExecute(String result) {
         	if (result.equals("true"))
         	{
-        		Toast.makeText(getBaseContext(), "Expense saved", Toast.LENGTH_SHORT).show();
+        		Toast.makeText(getBaseContext(), "Event has been saved.", Toast.LENGTH_SHORT).show();
         		mActivity.finish();
         	}
         	else
         	{
-        		Toast.makeText(getBaseContext(), "Error: cannot save expense", Toast.LENGTH_SHORT).show();
+        		Toast.makeText(getBaseContext(), "Error: cannot save event", Toast.LENGTH_SHORT).show();
         	}
         }
     	

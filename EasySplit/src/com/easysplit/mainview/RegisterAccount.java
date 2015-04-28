@@ -7,6 +7,7 @@ import com.example.easysplit.R.menu;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,14 @@ public class RegisterAccount extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register_account);
+		
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
 	}
 
 	@Override

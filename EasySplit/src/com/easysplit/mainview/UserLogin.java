@@ -21,6 +21,7 @@ import com.example.easysplit.R.menu;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,6 +43,14 @@ public class UserLogin extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.user_login);
 		getActionBar().hide();
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
+		
 		Button btnULLogin = (Button) findViewById(R.id.btnULLogin);
 		btnULLogin.setOnClickListener(new View.OnClickListener() {
 			

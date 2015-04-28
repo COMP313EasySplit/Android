@@ -9,6 +9,7 @@ import com.easysplit.base.ParticipantModel;
 import com.example.easysplit.R;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -27,6 +28,14 @@ public class ViewExpense extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_expense);
+		
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
 		
 		lvVExSelectParticipants = (ListView) findViewById(R.id.lvVExSelectParticipants);
 		expenseParticipantList = new ArrayList<ExpenseShareModel>();
@@ -112,14 +121,15 @@ public class ViewExpense extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		/*case R.id.action_edit_expense:
+		/*edit expense not implemented
+		   case R.id.action_edit_expense:
 			Intent editExIntentVE = new Intent(ViewExpense.this, EditExpense.class);
 			editExIntentVE.putExtra("expenseId",Integer.toString(expenseId));
 			startActivity(editExIntentVE);
 			return true;*/
-		//case R.id.action_delete_expense:
+		/*case R.id.action_delete_expense:
 			// deleteExpense();
-			//return true;
+			return true;*/
 		case R.id.action_home:
 			Intent homeIntentVE = new Intent(ViewExpense.this, MainActivity.class);
 			startActivity(homeIntentVE);

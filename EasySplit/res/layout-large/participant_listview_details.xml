@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:background="#FFFFFF"
+   android:padding="15dp">
+
+    <LinearLayout 
+       android:id="@+id/llPLVD1"
+       android:orientation="vertical"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:paddingLeft="10dip"
+       android:paddingRight="10dip">
+
+        <TextView
+         android:id="@+id/txtPLVDEventName"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         style="@style/MyUserManual_formlarge"
+		 android:text="@string/eventNameLV" 
+         />
+        <TextView
+         android:id="@+id/txtPLVDStatus"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         style="@style/MyUserManual_formlarge"
+         android:text="@string/statusLV" 
+         />
+    </LinearLayout>
+    
+    <TextView
+         android:id="@+id/txtPLVDamount"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         style="@style/MyUserManual_formlarge"
+         android:layout_alignParentRight="true"
+		 android:layout_centerVertical="true"
+         android:text="@string/amountLV" 
+         />
+
+</RelativeLayout >

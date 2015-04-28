@@ -5,6 +5,7 @@ import com.example.easysplit.R.id;
 import com.example.easysplit.R.layout;
 import com.example.easysplit.R.menu;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -17,6 +18,14 @@ public class AccountInfo extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.account_info);
+		
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
 	}
 
 	@Override

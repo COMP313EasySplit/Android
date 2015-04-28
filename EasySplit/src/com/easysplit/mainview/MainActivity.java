@@ -1,24 +1,18 @@
 package com.easysplit.mainview;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.ActionBar.TabListener;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.easysplit.fragments.EventHostTabFragment;
 import com.easysplit.fragments.ParticipantTabFragment;
 import com.example.easysplit.R;
-import com.easysplit.base.*;
 
 public class MainActivity extends Activity {
 
@@ -29,7 +23,7 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		super.onCreate(savedInstanceState);		
 		setContentView(R.layout.activity_main);
 		
 		// set global variable // for testing initializing
@@ -37,9 +31,7 @@ public class MainActivity extends Activity {
 		//esGlobal.setHostID(1);	for test only
 
 		// Action bar tab code
-		ActionBar bar = getActionBar();
-		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		ActionBar actionBar = getActionBar();
+		ActionBar actionBar = getActionBar();		
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		tab1 = actionBar.newTab().setText("Event Host");
@@ -48,13 +40,9 @@ public class MainActivity extends Activity {
 		tab2.setTabListener(new MyTabListener(fragmentTab2));
 		actionBar.addTab(tab1);
 		actionBar.addTab(tab2);
+
 	}
 
-	
-	  //@Override
-	  //public void onResume() {
-	  // ((EventHostTabFragment)fragmentTab1).updateData();
-	  //}
 	  
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

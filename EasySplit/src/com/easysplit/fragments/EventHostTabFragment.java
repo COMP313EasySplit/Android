@@ -12,6 +12,7 @@ import org.apache.http.HttpException;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract.Data;
@@ -54,6 +55,15 @@ public class EventHostTabFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.host_tab_fragment, container, false);
 		TextView textview = (TextView) view.findViewById(R.id.tabtextview);
+		
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
+		
 		textview.setText("My Events");
 		
 		elist = new ArrayList<HashMap<String, String>>();

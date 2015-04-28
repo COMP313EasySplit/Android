@@ -12,6 +12,7 @@ import com.easysplit.net.Parse;
 import com.example.easysplit.R;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,6 +45,13 @@ public class EventSummaryFragment extends Fragment {
 		View view = inflater.inflate(R.layout.event_summary_fragment,
 				container, false);
 		
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
 		thisActivity = getActivity();
 		Log.v("Type 1","Creating Event Summary Fragment");
 		
@@ -176,9 +184,16 @@ public class EventSummaryFragment extends Fragment {
     			         TextView actualData = new TextView(mActivity);
     			         //set properties
     			         actualData.setBackground(getResources().getDrawable(R.drawable.cell_shape));
-    			         actualData.setText(" " + row.get(j) + " ");
-    			         actualData.setTextSize(16);
-    			         actualData.setTextColor(R.color.black);
+    			         actualData.setText(" " + row.get(j) + " ");    			    
+    			         
+    			         if(getResources().getBoolean(R.bool.tablet)){
+    			        	 actualData.setTextSize(20);
+    			         }
+    			         else{    			        	 
+    			        	 actualData.setTextSize(16);
+    			         }
+    			         
+
     			         if (j>0) 
     			        	 {
     			        	 	actualData.setGravity(Gravity.RIGHT);

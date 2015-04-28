@@ -48,9 +48,13 @@ public class NewEvent extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_event);
 		
-		//if(getResources().getBoolean(R.bool.portrait_only)){
-	    //    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-	   // }
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
 		
 		addEvent = new AddEvent(NewEvent.this);
     	

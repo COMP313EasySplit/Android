@@ -11,6 +11,7 @@ import com.example.easysplit.R;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +31,13 @@ public class EditExpense extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_expense);
 
+		if(getResources().getBoolean(R.bool.portrait_only)){
+	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	    }
+		else 
+		{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);			
+		} 
 		
 		lvEExSelectParticipants = (ListView) findViewById(R.id.lvEExSelectParticipants);
 		expenseParticipantList = new ArrayList<ExpenseShareModel>();
