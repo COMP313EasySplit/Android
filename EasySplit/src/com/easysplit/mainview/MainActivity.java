@@ -1,13 +1,16 @@
 package com.easysplit.mainview;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
 import android.app.ActionBar;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.easysplit.fragments.EventHostTabFragment;
@@ -119,5 +122,33 @@ public class MainActivity extends Activity {
     public interface FragmentRefreshListener{
         void onRefresh();
     }
+    
+ // Back Button
+ 	@Override
+ 	public void onBackPressed() {
+ 		super.onBackPressed();
+ 	}
+
+ 	@Override
+ 	public boolean onKeyDown(int keyCode, KeyEvent event) {
+ 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+ 			AlertDialog.Builder builder = new AlertDialog.Builder(
+ 					MainActivity.this);
+ 			builder.setCancelable(false);
+ 			builder.setTitle("Exit?");
+ 			builder.setMessage("Logout of EasySplit?");
+ 			builder.setPositiveButton("Yes",
+ 					new DialogInterface.OnClickListener() {
+ 						public void onClick(DialogInterface dialog, int id) {
+ 							MainActivity.this.finish();
+ 							
+ 						}
+ 					});
+ 			builder.setNegativeButton(R.string.cancel, null);
+ 			builder.show();
+ 		}
+ 		return super.onKeyDown(keyCode, event);
+ 	}
+
 
 }
