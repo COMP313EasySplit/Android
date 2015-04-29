@@ -30,11 +30,15 @@ public class ViewEvent extends Activity {
 		Fragment fragmentTab3 = new EventSummaryFragment();
 		String eventId;
 		String source;
+		Menu menu;
+	
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_event);
+		
+		
 		
 		if(getResources().getBoolean(R.bool.portrait_only)){
 	        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -76,12 +80,14 @@ public class ViewEvent extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
+		//this.menu = menu;
 		getMenuInflater().inflate(R.menu.view_event, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		
 		switch (item.getItemId()) {
 		case R.id.action_home:
 			Intent homeIntentVE = new Intent(ViewEvent.this, MainActivity.class);
@@ -103,7 +109,7 @@ public class ViewEvent extends Activity {
 			return true;
 		
 		case R.id.action_refresh:
-		{
+		{			 
 		    FragmentRefreshListener tmpListener = getFragmentRefreshListener();
 
 			if(tmpListener!=null){
@@ -115,6 +121,7 @@ public class ViewEvent extends Activity {
 			return super.onOptionsItemSelected(item);
 		}
 	}
+	
 	
 	// listener for tabs
 		public class MyTabListener implements ActionBar.TabListener {

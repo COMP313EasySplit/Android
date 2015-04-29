@@ -7,6 +7,7 @@ import java.util.concurrent.TimeoutException;
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.EventModel;
 import com.easysplit.base.ParticipantModel;
+import com.easysplit.mainview.ViewEvent;
 import com.easysplit.net.EasySplitRequest;
 import com.easysplit.net.Parse;
 import com.example.easysplit.R;
@@ -18,6 +19,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -120,6 +123,15 @@ public class EventSummaryFragment extends Fragment {
 	    tableSummary =(TableLayout) view.findViewById(R.id.table);
 	    displaySummary = new DisplaySummary(thisActivity);
 	    displaySummary.execute(eventId);
+	    
+	    ((ViewEvent)getActivity()).setFragmentRefreshListener(new ViewEvent.FragmentRefreshListener() {
+            @Override
+            public void onRefresh() {
+            	//updateData();
+            	Toast.makeText(getActivity().getBaseContext(),"Refreshed", 
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
 		return view;
 	}
@@ -172,12 +184,16 @@ public class EventSummaryFragment extends Fragment {
 		}
         @Override
         protected void onPostExecute(ArrayList<ArrayList<String>> result) {
+        	
+        	
         	if (result.size()>0)
         	{
         		
     		  for(int i=0; i<result.size(); i++) {
+    			    
     			     TableRow tablerow = new TableRow(mActivity);
     			     tablerow.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT));
+    			         			     
     			     //set row
     			     ArrayList<String> row = result.get(i);
     			     for(int j=0; j<row.size(); j++) {
@@ -201,6 +217,7 @@ public class EventSummaryFragment extends Fragment {
         			         }
     			         tablerow.addView(actualData);
     			     }
+    			    
     			     tableSummary.addView(tablerow,new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
     			  }
         		  
@@ -213,6 +230,13 @@ public class EventSummaryFragment extends Fragment {
         	}
         }
     	
+    }
+    
+    public void updateData() {
+    	
+    	displaySummary = new DisplaySummary(thisActivity);
+    	displaySummary.execute(eventId);
+		
     }
 
 }

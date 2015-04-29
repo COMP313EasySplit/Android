@@ -24,6 +24,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -42,6 +44,8 @@ public class EventExpensesFragment extends Fragment{
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		
+		
 		View view = inflater.inflate(R.layout.event_expense_fragment, container, false);
 		//TextView textview = (TextView) view.findViewById(R.id.expense_tabtext);
 		//textview.setText("tab 2");
@@ -154,4 +158,6 @@ public class EventExpensesFragment extends Fragment{
     	loadEventExpense.execute(eventId);
 		
     }
+    
+    
 }

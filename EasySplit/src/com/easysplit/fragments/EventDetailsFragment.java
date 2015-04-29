@@ -11,6 +11,7 @@ import com.easysplit.base.EventModel;
 import com.easysplit.base.ParticipantModel;
 import com.easysplit.fragments.EventHostTabFragment;
 import com.easysplit.mainview.SettleParticipants;
+import com.easysplit.mainview.ViewEvent;
 import com.easysplit.net.EasySplitRequest;
 import com.easysplit.net.Parse;
 import com.example.easysplit.R;
@@ -23,6 +24,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -31,6 +34,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EventDetailsFragment extends Fragment{
 
@@ -40,6 +44,7 @@ public class EventDetailsFragment extends Fragment{
 	private int eventId;
 	private String source;
 	
+	 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.event_detail_fragment, container, false);
@@ -76,6 +81,8 @@ public class EventDetailsFragment extends Fragment{
 	    // display Name, Date, Budget
 		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
 		ArrayList<EventModel> eventList = esGlobal.getEventList(source);
+		
+		
 	    for ( EventModel event : eventList)
 	    {
 	    	if (eventId == event.EventId)
@@ -95,6 +102,15 @@ public class EventDetailsFragment extends Fragment{
 
 		loadParticipants = new LoadParticipants();
 		loadParticipants.execute(eventId);
+		
+		((ViewEvent)getActivity()).setFragmentRefreshListener(new ViewEvent.FragmentRefreshListener() {
+            @Override
+            public void onRefresh() {
+            	updateData();
+            	Toast.makeText(getActivity().getBaseContext(),"Refreshed", 
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
 		return view;
 	}
@@ -131,6 +147,7 @@ public class EventDetailsFragment extends Fragment{
 	    		esGlobal.setParticipantList(participantList);
 	        	//Log.v("Type 1"," Number of Events found: " + eventList.size());
 
+	    		plist.clear();
 	    		for (ParticipantModel participant : participantList)
 	        	{
 	        		HashMap<String, String> map = new HashMap<String, String>();
@@ -141,13 +158,14 @@ public class EventDetailsFragment extends Fragment{
 	        	}
 	    		
 	    		// bind to list view
-	            ListAdapter adapter = new SimpleAdapter(getActivity().getApplicationContext(),
+	    		SimpleAdapter adapter = new SimpleAdapter(getActivity().getApplicationContext(),
 	            		plist,
 	            		R.layout.event_detail_participant_listview_detail,
 	            		new String[]{"txtEPLVDFullname","txtEPLVDEmail"},
 	            		new int[]{R.id.txtEPLVDFullname, R.id.txtEPLVDEmail});
 	            ListView hostEventList = (ListView) fragment_v.findViewById(R.id.lvEDPartDetails);
 	            hostEventList.setAdapter(adapter);
+	            adapter.notifyDataSetChanged();
 	            
 	            
 	            /*
@@ -167,4 +185,13 @@ public class EventDetailsFragment extends Fragment{
 	            */
 	       }
 	    }
+	    
+	    public void updateData() {
+	    	
+	    	loadParticipants = new LoadParticipants();
+	    	loadParticipants.execute(eventId);
+			
+	    }
+	    
+	   
 }
