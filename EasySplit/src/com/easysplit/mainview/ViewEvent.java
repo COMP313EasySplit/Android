@@ -5,6 +5,7 @@ import com.easysplit.fragments.EventExpensesFragment;
 import com.easysplit.fragments.EventHostTabFragment;
 import com.easysplit.fragments.EventSummaryFragment;
 import com.easysplit.fragments.ParticipantTabFragment;
+import com.easysplit.mainview.MainActivity.FragmentRefreshListener;
 import com.easysplit.mainview.MainActivity.MyTabListener;
 import com.example.easysplit.R;
 
@@ -100,6 +101,16 @@ public class ViewEvent extends Activity {
 			Intent logoutIntentVE = new Intent(ViewEvent.this, UserLogin.class);
 			startActivity(logoutIntentVE);
 			return true;
+		
+		case R.id.action_refresh:
+		{
+		    FragmentRefreshListener tmpListener = getFragmentRefreshListener();
+
+			if(tmpListener!=null){
+				tmpListener.onRefresh();
+            }
+			return true;
+		}
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -124,4 +135,18 @@ public class ViewEvent extends Activity {
 			public void onTabReselected(Tab tab, FragmentTransaction ft) {
 			}
 		}
+		
+		public FragmentRefreshListener getFragmentRefreshListener() {
+	        return fragmentRefreshListener;
+	    }
+
+	    public void setFragmentRefreshListener(FragmentRefreshListener fragmentRefreshListener) {
+	        this.fragmentRefreshListener = fragmentRefreshListener;
+	    }
+
+	    private FragmentRefreshListener fragmentRefreshListener;
+
+	    public interface FragmentRefreshListener{
+	        void onRefresh();
+	    }
 }

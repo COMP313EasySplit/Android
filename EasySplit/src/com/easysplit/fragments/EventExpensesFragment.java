@@ -10,6 +10,8 @@ import org.apache.http.HttpException;
 import com.easysplit.base.EasySplitGlobal;
 import com.easysplit.base.EventModel;
 import com.easysplit.base.ExpenseModel;
+import com.easysplit.mainview.MainActivity;
+import com.easysplit.mainview.ViewEvent;
 import com.easysplit.net.EasySplitRequest;
 import com.easysplit.net.Parse;
 import com.example.easysplit.R;
@@ -29,6 +31,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EventExpensesFragment extends Fragment{
 
@@ -64,6 +67,15 @@ public class EventExpensesFragment extends Fragment{
 		loadEventExpense = new LoadEventExpense();
 		loadEventExpense.execute(eventId);
 		
+		((ViewEvent)getActivity()).setFragmentRefreshListener(new ViewEvent.FragmentRefreshListener() {
+            @Override
+            public void onRefresh() {
+            	updateData();
+            	Toast.makeText(getActivity().getBaseContext(),"Refreshed", 
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+		
 		return view;
 	}
 	
@@ -96,6 +108,7 @@ public class EventExpensesFragment extends Fragment{
         	// save to global variable, for re-use
     		final EasySplitGlobal esGlobal = (EasySplitGlobal) getActivity().getApplicationContext();
     		esGlobal.setExpenseList(expenseList);
+    		exlist.clear();
     		
         	// generate adapter for list view
         	for (ExpenseModel expense : expenseList)
@@ -109,13 +122,14 @@ public class EventExpensesFragment extends Fragment{
         	}
     		
     		// bind to listview
-            ListAdapter adapter = new SimpleAdapter(getActivity().getApplicationContext(),
+        	SimpleAdapter adapter = new SimpleAdapter(getActivity().getApplicationContext(),
             		exlist,
             		R.layout.eventexpense_listview_details,
             		new String[]{"txtEELVDEventName","txtEELVDStatus","txtEELVDamount"},
             		new int[]{R.id.txtEELVDEventName, R.id.txtEELVDStatus, R.id.txtEELVDamount});
             ListView eventExpenseList = (ListView) fragment_v.findViewById(R.id.lvEEFDisplayExpenses);
             eventExpenseList.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
             
             // click to show expense sharing detail
             eventExpenseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -132,5 +146,12 @@ public class EventExpensesFragment extends Fragment{
                 }
             });
        }
+    }
+    
+    public void updateData() {
+    	
+    	loadEventExpense = new LoadEventExpense();
+    	loadEventExpense.execute(eventId);
+		
     }
 }
