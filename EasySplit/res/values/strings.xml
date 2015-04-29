@@ -49,9 +49,9 @@
 
     <!-- New Expense Strings -->
     <string name="enterExpense">Enter an Expense Name</string>
-    <string name="payer">Payer: </string>
-    <string name="amount">Amount: $</string>
-    <string name="place">Place: </string>
+    <string name="payer">Expense Payer: </string>
+    <string name="amount">Total Amount:   $</string>
+    <string name="place">Place of Purchase: </string>
     <string name="selectPart">Select Participants</string>
     <string name="split">Save &amp; Split</string>
     <string name="photoPreview">Photo Preview</string>

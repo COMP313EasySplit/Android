@@ -4,165 +4,172 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal" >
-        <TextView
-            android:id="@+id/txtVExName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dip"
-            android:text="Expense Name : "
-            android:layout_gravity="center"
-            style="@style/MyUserManual"
-            android:textStyle="normal" />
-        <TextView
-            android:id="@+id/txtVExDisplayName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dip"
-            android:text="null"
-            android:layout_gravity="center"
-            style="@style/MyUserManual"
-            android:textStyle="normal" />
-    </LinearLayout>
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtVExName"
+            style="@style/MyUserManual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dip"
+            android:text="Expense Name: "
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/txtVExDisplayName"
+            style="@style/MyUserManual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dip"
+            android:text="null"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/txtVExDateCreated"
+            style="@style/MyUserManual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="25dip"
             android:text="@string/dateCreated"
-            android:layout_gravity="center"
-            style="@style/MyUserManual"
             android:textStyle="normal" />
 
         <TextView
             android:id="@+id/txtVExDisplayDateCreated"
+            style="@style/MyUserManual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dip"
-            android:text="null"
             android:layout_gravity="center"
-            style="@style/MyUserManual"
+            android:layout_marginLeft="30dip"
+            android:text="null"
             android:textStyle="normal" />
-    
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_marginTop="5dp"
+        android:layout_weight="1"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/txtVExPayer"
+            style="@style/MyUserManual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="25dip"
             android:text="@string/payer"
-            android:layout_gravity="center"
-            style="@style/MyUserManual"
             android:textStyle="normal" />
 
         <TextView
             android:id="@+id/txtVExDisplayPayer"
+            style="@style/MyUserManual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dip"
-            android:text="null"
             android:layout_gravity="center"
-            style="@style/MyUserManual"
+            android:layout_marginLeft="17dip"
+            android:text="null"
             android:textStyle="normal" />
-    
     </LinearLayout>
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_weight="1"
-        android:layout_marginTop="5dp"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/txtVExAmount"
+            style="@style/MyUserManual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
             android:text="@string/amount"
-            style="@style/MyUserManual"
             android:textStyle="normal" />
 
-       <TextView
+        <TextView
             android:id="@+id/txtVExDisplayAmount"
+            style="@style/MyUserManual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dip"
+            android:layout_marginLeft="10dip"
             android:text="null"
-            style="@style/MyUserManual"
             android:textStyle="normal" />
     </LinearLayout>
-    
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:layout_marginTop="5dp"
-          android:orientation="horizontal" >
-
-          <TextView
-              android:id="@+id/txtVExPlace"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginLeft="25dip"
-              android:text="@string/place"
-              style="@style/MyUserManual"
-              android:textStyle="normal" />
-		<TextView
-              android:id="@+id/txtVExDisplayPlace"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginLeft="25dip"
-              android:text="null"
-              style="@style/MyUserManual"
-              android:textStyle="normal" />
-      </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtVExPlace"
+            style="@style/MyUserManual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="@string/place"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/txtVExDisplayPlace"
+            style="@style/MyUserManual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="null"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/txtVExParticipants"
+            style="@style/MyUserManual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dip"
-            android:text="@string/participants"            
-            style="@style/MyUserManual"
-            android:textStyle="normal"/>
-	    <ListView
-	        android:id="@+id/lvVExSelectParticipants"
-	        android:layout_width="wrap_content"
-	        android:layout_height="196dp"
-	        android:layout_marginLeft="30dip" >
+            android:text="@string/participants"
+            android:textStyle="normal" />
+    </LinearLayout>
 
-    </ListView>
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
 
-
+        <ListView
+            android:id="@+id/lvVExSelectParticipants"
+            android:layout_width="299dp"
+            android:layout_height="196dp"
+            android:layout_marginLeft="30dip" >
+        </ListView>
+    </LinearLayout>
 
 </LinearLayout>
