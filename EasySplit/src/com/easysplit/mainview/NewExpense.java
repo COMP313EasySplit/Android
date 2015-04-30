@@ -212,7 +212,7 @@ public class NewExpense extends Activity {
 			{
 				share.PaidAmount = 0.0;
 				share.SharedAmount = share_amount;
-				share.OweAmount = 0 - share_amount;
+				share.OweAmount = share_amount - 0;
 			}
 			
 	    	String name = spNExPayer.getSelectedItem().toString();
@@ -221,7 +221,7 @@ public class NewExpense extends Activity {
 			{
 				share.PaidAmount = total_amount;
 				share.SharedAmount = host_share_amount;
-				share.OweAmount = total_amount - host_share_amount;
+				share.OweAmount = host_share_amount - total_amount ;
 			}
 		}
 		
@@ -390,12 +390,12 @@ public class NewExpense extends Activity {
         protected void onPostExecute(String result) {
         	if (result.equals("true"))
         	{
-        		Toast.makeText(getBaseContext(), "Event has been saved.", Toast.LENGTH_SHORT).show();
+        		Toast.makeText(getBaseContext(), "Expense has been saved.", Toast.LENGTH_SHORT).show();
         		mActivity.finish();
         	}
         	else
         	{
-        		Toast.makeText(getBaseContext(), "Error: cannot save event", Toast.LENGTH_SHORT).show();
+        		Toast.makeText(getBaseContext(), "Error: cannot save expense", Toast.LENGTH_SHORT).show();
         	}
         }
     	
