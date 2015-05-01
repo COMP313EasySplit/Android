@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:orientation="horizontal" >
 
     <TextView
@@ -49,14 +49,23 @@
         android:layout_marginTop="20dp"
         >
         
-    <TextView
+            
+     <TextView
+        android:id="@+id/link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"        
+        style="@style/MyUserManual_large" 
+        android:text="Contact your local administrator for assistance." />
+             
+   <!--   <TextView
         android:id="@+id/link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/text_color"
         style="@style/MyUserManual_large" 
-        android:text="Register Here" />
+        android:text="Register Here" />-->
     
     </LinearLayout>
    
