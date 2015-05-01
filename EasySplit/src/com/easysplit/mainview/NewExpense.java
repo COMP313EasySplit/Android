@@ -201,7 +201,7 @@ public class NewExpense extends Activity {
 		}
 		double share_amount = Math.floor(total_amount/selected_count * 100.0) / 100.0;
 		double host_share_amount = total_amount - share_amount*(selected_count-1);
-		host_share_amount = Math.floor(host_share_amount * 100.0) / 100.0;
+		host_share_amount = Math.floor(host_share_amount * 100.0) / 100;
 		for (int i=0;i<participantExpenseShareList.size();i++)
 		{
 			ExpenseShareModel share = participantExpenseShareList.get(i);
@@ -221,7 +221,7 @@ public class NewExpense extends Activity {
 			{
 				share.PaidAmount = total_amount;
 				share.SharedAmount = host_share_amount;
-				share.OweAmount = host_share_amount - total_amount ;
+				share.OweAmount = Math.floor((host_share_amount - total_amount) * 100) / 100 ;
 			}
 		}
 		
